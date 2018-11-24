@@ -17,7 +17,7 @@
 
     <style>
         #imagen-principal{
-            /*background-image: url("img/7213/jpg");*/
+            background-image: url("img/back3.jpg");
             background-color: #eeeeee;
 
             width: auto;
@@ -25,6 +25,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            padding-bottom: 20px;
         }
 
         .TituloSombra{
@@ -34,6 +35,7 @@
           margin: 10px;
           color: white;
           text-align: center;
+          display: none;
         }
     </style>
 
@@ -107,28 +109,37 @@
   
     </nav>
 
-    <main class="container-fluid">
-        <div class="row" id="imagen-principal">
-            <div class=" col-xl-4 col-md-6 col-sm-12 col-xs-12">
-              <h1 class="TituloSombra m-5">Por que cada proyecto es una guerra </h1>
-              <h5 class="TituloSombra">Mejora tus habilidades con nosotros</h5>
-            </div>
-            <div class=" col-xl-8 col-md-6 col-sm-12 col-xs-12 ">
-              <img src="img/fondo2.png" alt="" width="100%" class=" ml-auto">
-            </div>
-        </div>
+    
 
-        <div class="row ">
+</header>
+
+<main class="container-fluid">
+  <div class="row border-bottom border-light" id="imagen-principal">
+      <div class=" col-xl-4 col-md-6 col-sm-12 col-xs-12">
+        <h1 class="TituloSombra m-5">Por que cada proyecto es una guerra </h1>
+        <h5 class="TituloSombra">Mejora tus habilidades con nosotros</h5>
+      </div>
+      <div class=" col-xl-8 col-md-6 col-sm-12 col-xs-12 ">
+        <img src="img/fondo2.png" alt="" width="100%" class=" ml-auto" id="img-principal">
+      </div>
+  </div>
+
+  <div class="container my-4">
+
+         
+
+
+      <div class="row">
           <div class="col-12">
-            <h1>Planes</h1>
-
-          </div>
-          <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 ">
-           
+              <h1>Planes</h1>
+        
+            </div>
+          <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 m-auto">
+   
 
               <!-- Card Dark -->
-              <div class="card">
-
+              <div class="card example hoverable">
+      
                   <!-- Card image -->
                   <div class="view overlay">
                     <img class="card-img-top" src="img/plan2.jpg" alt="Card image cap">
@@ -153,89 +164,88 @@
                 
                 </div>
                 <!-- Card Dark -->
-
-          </div>
-          <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 " ">
-                        
-            <!-- Card Dark -->
-            <div class="card">
-
-                <!-- Card image -->
-                <div class="view overlay">
-                  <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                  <a>
-                    <div class="mask rgba-white-slight"></div>
-                  </a>
-                </div>
-              
-                <!-- Card content -->
-                <div class="card-body elegant-color white-text rounded-bottom">
-              
-                  <!-- Social shares button -->
-                  <a class="activator waves-effect mr-4"><i class="fa fa-share-alt white-text"></i></a>
-                  <!-- Title -->
-                  <h4 class="card-title">Plan Avanzado</h4>
-                  <hr class="hr-light">
-                  <!-- Text -->
-                  <p class="card-text white-text mb-4">Plan con 200 mg de espacio disponible.</p>
-                  <!-- Link -->
-                  <a href="#!" class="white-text d-flex justify-content-end"><h5>Adquierelo <i class="fa fa-angle-double-right"></i></h5></a>
-              
-                </div>
-              
-              </div>
-              <!-- Card Dark -->
-
-
-
-          </div>
-          <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12">
-
-            <!-- Card Dark -->
-            <div class="card">
-
-                <!-- Card image -->
-                <div class="view overlay">
-                  <img class="card-img-top" src="img/plan3.png" alt="Card image cap">
-                  <a>
-                    <div class="mask rgba-white-slight"></div>
-                  </a>
-                </div>
-              
-                <!-- Card content -->
-                <div class="card-body elegant-color white-text rounded-bottom">
-              
-                  <!-- Social shares button -->
-                  <a class="activator waves-effect mr-4"><i class="fa fa-share-alt white-text"></i></a>
-                  <!-- Title -->
-                  <h4 class="card-title">Plan Premium</h4>
-                  <hr class="hr-light">
-                  <!-- Text -->
-                  <p class="card-text white-text mb-4">Plan con espacio ilimitado.</p>
-                  <!-- Link -->
-                  <a href="#!" class="white-text d-flex justify-content-end"><h5>Adquierelo <i class="fa fa-angle-double-right"></i></h5></a>
-              
-                </div>
-              
-              </div>
-              <!-- Card Dark -->
-
-
+      
             </div>
-          </div>
-         
-        </div>
+            <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 m-auto" >
+                
+              <!-- Card Dark -->
+              <div class="card example hoverable">
+        
+                  <!-- Card image -->
+                  <div class="view overlay">
+                    <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+                
+                  <!-- Card content -->
+                  <div class="card-body elegant-color white-text rounded-bottom">
+                
+                    <!-- Social shares button -->
+                    <a class="activator waves-effect mr-4"><i class="fa fa-share-alt white-text"></i></a>
+                    <!-- Title -->
+                    <h4 class="card-title">Plan Avanzado</h4>
+                    <hr class="hr-light">
+                    <!-- Text -->
+                    <p class="card-text white-text mb-4">Plan con 200 mg de espacio disponible.</p>
+                    <!-- Link -->
+                    <a href="#!" class="white-text d-flex justify-content-end"><h5>Adquierelo <i class="fa fa-angle-double-right"></i></h5></a>
+                
+                  </div>
+                
+                </div>
+                <!-- Card Dark -->
+        
+        
+        
+            </div>
+            <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 m-auto">
+        
+              <!-- Card Dark -->
+              <div class="card example hoverable">
+        
+                  <!-- Card image -->
+                  <div class="view overlay">
+                    <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
+                    <a>
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+                
+                  <!-- Card content -->
+                  <div class="card-body elegant-color white-text rounded-bottom">
+                
+                    <!-- Social shares button -->
+                    <a class="activator waves-effect mr-4"><i class="fa fa-share-alt white-text"></i></a>
+                    <!-- Title -->
+                    <h4 class="card-title">Plan Premium</h4>
+                    <hr class="hr-light">
+                    <!-- Text -->
+                    <p class="card-text white-text mb-4">Plan con espacio ilimitado.</p>
+                    <!-- Link -->
+                    <a href="#!" class="white-text d-flex justify-content-end"><h5>Adquierelo <i class="fa fa-angle-double-right"></i></h5></a>
+                
+                  </div>
+                
+                </div>
+                <!-- Card Dark -->
+        
+        
+            </div>
+      </div>
+    
+    </div>
 
+    </div>   
+  
 
-        <div class="row">
-          <div class="col-12">
-            <h1>Colabora y Comparte tus proyectos</h1>
-          </div>
-        </div>
-    </main>
-
-</header>
-
+  <div class="row">
+    <div class="col-12">
+      <h1>Colabora y Comparte tus proyectos</h1>
+    </div>
+  </div>
+</main>
 
 
   <!-- Start your project here
@@ -280,6 +290,8 @@
   
     </footer>
     <!-- Footer -->
+
+  
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
@@ -287,6 +299,18 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+
+  <script>
+        
+      $(document).ready(function(){
+
+
+
+           $(".TituloSombra").delay("slow").fadeIn();
+          
+      });
+
+    </script>
 </body>
 
 </html>

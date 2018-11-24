@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.proyecto</OriginalElement>
+  <nodes>
+    <node x="0.0" y="22.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.plan</node>
+    <node x="483.625" y="424.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.tipo_archivo</node>
+    <node x="135.25" y="804.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.chat</node>
+    <node x="227.625" y="402.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.proyecto</node>
+    <node x="269.0" y="0.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario</node>
+    <node x="387.625" y="570.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.archivo</node>
+    <node x="150.25" y="625.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.colaborador</node>
+    <node x="180.25" y="234.0">b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario_plan</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.archivo" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.archivo">
+      <point x="0.0" y="92.0" />
+      <point x="501.125" y="774.0" />
+      <point x="367.625" y="774.0" />
+      <point x="367.625" y="662.0" />
+      <point x="-113.5" y="-0.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.archivo" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.proyecto">
+      <point x="-56.75" y="-92.0" />
+      <point x="444.375" y="545.0" />
+      <point x="404.625" y="545.0" />
+      <point x="59.0" y="59.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.colaborador" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.proyecto">
+      <point x="42.0" y="-37.0" />
+      <point x="276.25" y="545.0" />
+      <point x="286.625" y="545.0" />
+      <point x="-59.0" y="59.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario_plan" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.plan">
+      <point x="-41.75" y="-59.0" />
+      <point x="222.0" y="209.0" />
+      <point x="124.5" y="209.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario_plan" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario">
+      <point x="41.75" y="-59.0" />
+      <point x="305.5" y="209.0" />
+      <point x="403.0" y="209.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.proyecto" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario_plan">
+      <point x="0.0" y="-59.0" />
+      <point x="345.625" y="377.0" />
+      <point x="305.5" y="377.0" />
+      <point x="41.75" y="59.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.archivo" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.tipo_archivo">
+      <point x="56.75" y="-92.0" />
+      <point x="557.875" y="545.0" />
+      <point x="597.625" y="545.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.colaborador" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.usuario_plan">
+      <point x="-42.0" y="-37.0" />
+      <point x="192.25" y="545.0" />
+      <point x="199.5" y="545.0" />
+      <point x="199.5" y="377.0" />
+      <point x="222.0" y="377.0" />
+      <point x="-41.75" y="59.0" />
+    </edge>
+    <edge source="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.chat" target="b1d0bcf0-2414-4255-8f16-09413495fc81.TABLE:franwars.colaborador">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="37.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9798755186721989" x="384.68549034438166" y="499.2403133601525" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
