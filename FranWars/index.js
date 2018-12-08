@@ -97,4 +97,49 @@ app.post("/registrar-plan",function(req,res){
 
 });
 
+//ruta para registrar proyectos
+app.post("/registrar-proyecto", function(req,res){
+    var sql = "insert into proyecto(ProyectoNombre,ProyectoDescripcion,UsuarioId) values (?,?,?);"
+    var conexion = mysql.createConnection(credenciales.credenciales);
+    conexion.query(sql,[req.body.proyectoNombre, req.body.proyectoDescripcion, req.body.usuarioId],
+        function(error,data,fields){
+            if (error){
+                res.send(error);
+                res.end();
+            }
+            else{
+                res.send(data);
+                res.end();
+            }
+        });
+});
+
+//funcion para registrar un archivo de proyecto
+app.post("/registrar-archivo", function(req,res){
+    var archivoSuperior = req.body.archivoSuperiorId;
+    if (archivoSuperior == "")
+        archivoSuperior = null;
+
+    var sql = "insert into archivo(ProyectoId, ArchivoContenido,ArchivoNombre,ArchivoFecha, TipoArchivoId, ArchivoSuperiorId) values (?,?,?,now(),?,?);";
+    var conexion = mysql.createConnection(credenciales.credenciales);
+    conexion.query(sql, 
+        [
+            req.body.proyectoId, 
+            req.body.archivoContenido,
+            req.body.archivoNombre,
+            req.body.tipoArchivo,
+            archivoSuperior
+        ],
+        function(error,data,fields){
+            if (error)
+                res.send(error);
+            else    
+                res.send(data);
+            
+            res.end();
+        });
+});
+
+
+
 app.listen(8001);
