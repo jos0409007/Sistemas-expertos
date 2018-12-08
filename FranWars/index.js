@@ -50,7 +50,7 @@ app.get("/proyectos", function(req, res){
 
 });
 
-
+//funcion para registrar usuarios
 app.post("/registrar", function(req, res){
 
  
@@ -140,6 +140,35 @@ app.post("/registrar-archivo", function(req,res){
         });
 });
 
+//funcion para registrar colaboradores en un proyecto
+app.post("/registrar-colaborador", function(req,res){
 
+    var conexion = mysql.createConnection(credenciales.credenciales);
+    var sql = "insert into colaborador(ProyectoId, ColaboradorId) values (?,?);";
+    conexion.query(sql, [req.body.proyectoId, req.body.colaboradorId], function(error, data, fields){
+        if (error)
+            res.send(error);
+        else
+            res.send(data);
+        
+        res.end();
+    });
+
+});
+
+//registrar mensajes de chat en proyecto
+app.post("enviar-mensaje", function(req,res){
+    var sql = "insert into chat(ColaboradorId, ProyectoId,ChatMensaje, ChatFecha) values (?,?,?,now());";
+    var conexion =  mysql.createConnection(credenciales.credenciales);
+    conexion.query(sql, [req.body.colaboradorId, req.body.proyectoId, req.body.mensaje], 
+        function(error, data, fields){
+            if (error)
+                res.send(error);
+            else
+                res.send(data);
+            
+            res.end();
+        });
+});
 
 app.listen(8001);
