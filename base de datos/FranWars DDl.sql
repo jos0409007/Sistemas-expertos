@@ -91,17 +91,16 @@ comment 'tabla de archivos de proyecto'
 create table colaborador
 (
 	ColaboradorId int not null,
-	ProyectoId int not null
-		primary key,
+	ProyectoId int not null,
+	constraint colaborad_pk	primary key(ColaboradorId,ProyectoId),
 	constraint colaborador_proyecto_ProyectoId_fk
-		foreign key (ProyectoId) references proyecto (ProyectoId)
+		foreign key(ProyectoId) references proyecto (ProyectoId)
 			on update cascade on delete cascade,
 	constraint colaborador_usuario_plan_UsuarioId_fk
 		foreign key (ColaboradorId) references usuario_plan (UsuarioId)
 			on update cascade on delete cascade
 )
 ;
-
 create table chat
 (
 	ChatId int auto_increment

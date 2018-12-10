@@ -1,16 +1,39 @@
 var express = require("express");
-var mysql = require("mysql");
-var bodyParser = require("body-parser");
 var app = express();
-var credenciales = require("./conexion.js");
+var archivo = require("./archivo.js");
+var proyecto = require("./proyecto.js");
+var plan = require("./plan.js");
+var planUsuario = require("./plan-usuario");
+var usuario = require("./usuario");
+var colaborador = require("./colaborador");
+var chat =  require("./chat");
 
 app.use(express.static("public"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+app.use("/archivo", archivo);
+app.use("/proyecto", proyecto);
+app.use("/plan", plan);
+app.use("/plan-usuario",planUsuario);
+app.use("/usuario", usuario);
+app.use("/colaborador",colaborador);
+app.use("/chat", chat);
+
+/*observacion importante
+
+falta un select por archivo individual,
+falta un select por usuario, que contenga el plan
+
+no borrar las rutas hasta que este seguro que todas funcionan y despues ver como jalar desde el cliente
+o sea, borrar hasta el final.
+
+*/
+//app.use(bodyParser.json());
+/*app.use(bodyParser.urlencoded({
     extended: true
   }));
+*/
 
 //ruta que contiene todos los archvivos por proyecto
+/*
 app.get("/archivos", function(req, res){
     var fecha = new Date();
     console.log("aqui " + fecha);
@@ -25,7 +48,7 @@ app.get("/archivos", function(req, res){
             console.log(data[0][i]);
             console.log(data[0][i].TipoArchivoNombre);
         }
-        */
+        
         res.send(data[0]);
         
         conexion.end();
@@ -33,8 +56,11 @@ app.get("/archivos", function(req, res){
 
 
 });
+*/
 
 //ruta que contiene todos los proyectos por usuario
+
+/*
 app.get("/proyectos", function(req, res){
 
     var conexion =  mysql.createConnection(credenciales.credenciales);
@@ -49,8 +75,10 @@ app.get("/proyectos", function(req, res){
 
 
 });
+*/
 
 //funcion para registrar usuarios
+/*
 app.post("/registrar", function(req, res){
 
  
@@ -78,8 +106,9 @@ app.post("/registrar", function(req, res){
     
 
 });
-
+*/
 //insert para registrar el plan del usuario
+/*
 app.post("/registrar-plan",function(req,res){
     
     var conexion = mysql.createConnection(credenciales.credenciales);
@@ -97,9 +126,11 @@ app.post("/registrar-plan",function(req,res){
 
 });
 
+*/
 //ruta para registrar proyectos
+/*
 app.post("/registrar-proyecto", function(req,res){
-    var sql = "insert into proyecto(ProyectoNombre,ProyectoDescripcion,UsuarioId) values (?,?,?);"
+    var sql = "insert into proyecto(ProyectoNombre,ProyectoDescripcion,UsuarioId) values (?,?,?);";
     var conexion = mysql.createConnection(credenciales.credenciales);
     conexion.query(sql,[req.body.proyectoNombre, req.body.proyectoDescripcion, req.body.usuarioId],
         function(error,data,fields){
@@ -113,8 +144,10 @@ app.post("/registrar-proyecto", function(req,res){
             }
         });
 });
+*/
 
 //funcion para registrar un archivo de proyecto
+/*
 app.post("/registrar-archivo", function(req,res){
     var archivoSuperior = req.body.archivoSuperiorId;
     if (archivoSuperior == "")
@@ -139,8 +172,11 @@ app.post("/registrar-archivo", function(req,res){
             res.end();
         });
 });
+*/
+
 
 //funcion para registrar colaboradores en un proyecto
+/*
 app.post("/registrar-colaborador", function(req,res){
 
     var conexion = mysql.createConnection(credenciales.credenciales);
@@ -155,8 +191,11 @@ app.post("/registrar-colaborador", function(req,res){
     });
 
 });
+*/
+
 
 //registrar mensajes de chat en proyecto
+/*
 app.post("enviar-mensaje", function(req,res){
     var sql = "insert into chat(ColaboradorId, ProyectoId,ChatMensaje, ChatFecha) values (?,?,?,now());";
     var conexion =  mysql.createConnection(credenciales.credenciales);
@@ -170,5 +209,6 @@ app.post("enviar-mensaje", function(req,res){
             res.end();
         });
 });
+*/
 
 app.listen(8001);
