@@ -26,8 +26,18 @@ app.use("/usuario", usuario);
 app.use("/colaborador",colaborador);
 app.use("/chat", chat);
 
+var usuarioId;
+var tipoUsuarioId;
+
 app.use(session({ secret: "ASDFE$%#%", resave: true, saveUninitialized: true }));
 
+app.use(function(req, res, next){
+    if (req.session.usuarioId){
+        usuarioId =  req.session.usuarioId;
+        tipoUsuarioId =  req.session.tipoUsuarioId;
+    }
+    next();
+});
 
 function verificarAutenticacion(req, res, next){
     if(req.session.usuarioId){
@@ -54,6 +64,18 @@ app.post("/login", function(req, res){
 
 app.get("/dashboard", verificarAutenticacion,function(req,res){
     res.sendFile(path.join(__dirname + '/public/dashboard.html'));
+});
+
+app.get("/obtener-usuario", function(req,res){
+   var usuario = {
+        usuarioId: usuarioId,
+        tipoUsuarioId: tipoUsuarioId
+    }
+    res.send(usuario);
+});
+
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.get("/cerrar-sesion",function(req,res){
