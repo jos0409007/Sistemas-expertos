@@ -16,8 +16,8 @@ router.route("/")
     })
     .post(function(req, res){
         var sql = `insert into 
-        usuario(UsuarioNombre,UsuarioApellido,UsuarioNick,UsuarioPassword, UsuarioCorreo, UsuarioRedSocial, UsuarioEstatus) 
-        values (?,?,?,?,?,?,?);`;
+        usuario(UsuarioNombre,UsuarioApellido,UsuarioNick,UsuarioPassword, UsuarioCorreo, UsuarioRedSocial, TipoUsuarioId, UsuarioEstatus) 
+        values (?,?,?,sha1(?),?,?,?,?);`;
 
         var arr =  [
             req.body.usuarioNombre,
@@ -26,6 +26,7 @@ router.route("/")
             req.body.usuarioPassword,
             req.body.usuarioCorreo,
             req.body.usuarioRedSocial,
+            req.body.tipoUsuarioId,
             req.body.usuarioEstatus
         ];
 
@@ -33,13 +34,12 @@ router.route("/")
     })
     .put(function(req, res){
         var sql = `update usuario set UsuarioNombre = ?, UsuarioApellido = ?, UsuarioNick = ?,
-         UsuarioPassword = ?, UsuarioCorreo = ?, UsuarioEstatus = ? where UsuarioId = ?;`;
+         UsuarioCorreo = ?, UsuarioEstatus = ? where UsuarioId = ?;`;
 
          var arr = [
              req.query.usuarioNombre,
              req.query.usuarioApellido,
              req.query.usuarioNick,
-             req.query.usuarioPassword,
              req.query.usuarioCorreo,
              req.query.usuarioEstatus,
              req.query.usuarioId
@@ -52,6 +52,17 @@ router.route("/")
         var arr = [req.query.usuarioId];
         bd.query(sql,arr,res);
     });
+
+
+router.put("/cambiar-pass", function(req, res){
+    var sql = `update usuario set UsuarioPassword = sha1(?) where UsuarioId = ?;`;
+    var arr = [
+        req.query.usuarioPassword,
+        req.query.usuarioId
+    ];
+    bd.query(sql,arr,res);
+
+});
 
 module.exports = router;
 

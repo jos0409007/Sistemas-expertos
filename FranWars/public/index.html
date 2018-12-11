@@ -37,6 +37,14 @@
           text-align: center;
           display: none;
         }
+
+        .PIndex{
+          padding-left: 0px !important;
+        }
+
+        .PindexLeft{
+          padding-left: 20px !important;
+        }
     </style>
 
 </head>
@@ -46,12 +54,12 @@
 <header>
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark mdb-color darken-4">
+    <nav class="navbar navbar-expand-lg navbar-dark mdb-color darken-4 PIndex">
 
     <!-- Navbar brand -->
     
   
-    <a class="navbar-brand" href="#">FranWars</a>
+    <a class="navbar-brand PindexLeft" href="#">FranWars</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -86,10 +94,11 @@
         </li>
       -->
         <li class="nav-item">
-            <a class="nav-link" href="#">Iniciar Sesion</a>
+            <a class="nav-link" data-toggle="modal"
+            data-target="#modalLoginAvatarDemo">Iniciar Sesion</a>
         </li> 
         <li class="nav-item active">
-            <a class="nav-link" href="#">Registrate</a>
+            <a class="nav-link" href="dashboard.html">Registrate</a>
         </li>
 
       </ul>
@@ -112,6 +121,51 @@
     
 
 </header>
+
+<!--esta es la seccion donde iran los mdales-->
+
+
+<section>
+
+  <div class="modal fade" id="modalLoginAvatarDemo" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+      <!--Content-->
+      <div class="modal-content">
+
+          <!--Header-->
+          <div class="modal-header">
+              <img src="/img/user.png"
+                  class="rounded-circle img-responsive" alt="Avatar photo" >
+          </div>
+          <!--Body-->
+          <div class="modal-body text-center mb-1">
+
+              <h5 class="mt-1 mb-2">Iniciar Sesion</h5>
+              <div class="md-form ml-0 mr-0">
+                  <input  type="text" id="log-usuario" class="form-control ml-0">
+                  <label for="usuario" class="ml-0">correo/nick</label>
+              </div>
+
+              <div class="md-form ml-0 mr-0">
+                  <input type="password" type="text" id="log-pass" class="form-control ml-0">
+                  <label for="log-pass" class="ml-0">Enter password</label>
+              </div>
+
+              <div class="text-center mt-4">
+                  <button class="btn mdb-color darken-4" id="btn-login">Login
+                      <i class="fa fa-sign-in ml-1"></i>
+                  </button>
+              </div>
+          </div>
+
+      </div>
+      <!--/.Content-->
+  </div>
+</div>
+
+</section>
+
 
 <main class="container-fluid">
   <div class="row border-bottom border-light" id="imagen-principal">
@@ -263,7 +317,7 @@
   <!-- SCRIPTS -->
   <!-- JQuery -->
 
-  <footer class="page-footer font-small unique-color-dark pt-4">
+  <footer class="page-footer font-small unique-color-dark pt-4 PIndex">
 
       <!-- Footer Elements -->
       <div class="container">
@@ -299,15 +353,39 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/c_archivo.js"></script>
 
   <script>
         
       $(document).ready(function(){
 
 
-
            $(".TituloSombra").delay("slow").fadeIn();
           
+      });
+
+      $("#btn-login").click(function(){
+
+        $.ajax({
+          url:"/login",
+          data:`usuarioCorreo=${$("#log-usuario").val()}&usuarioNick=${$("#log-usuario").val()}&usuarioPassword=${$("#log-pass").val()}`,
+          dataType:"json",
+          method:"POST",
+          success:function(res){
+            //console.log("veamos si realmente funcinoa");
+            console.log(res);
+            if (res.length == 1){
+              window.location = "/dashboard";
+            }
+            else{
+              alert("usuario invalido");
+            }
+          },
+          error:function(error){
+            console.log(error);
+          }
+        });
+
       });
 
     </script>
