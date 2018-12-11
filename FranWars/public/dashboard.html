@@ -841,7 +841,6 @@
                             <div class="card">
                     
                                 <!-- Card image -->
-                                <input type="text" value=${res[0][i].ProyectoId}>
                                 <div class="view overlay">
                                 <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
                                 <a>
@@ -855,8 +854,8 @@
                                 <!-- Social shares button -->
 
                                 <!-- Title -->
-                                <a class="borrar" data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
-                                 <a class="actualizar" ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
+                                <a class="borrar" data-value=${res[0][i].ProyectoId} data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
+                                 <a class="actualizar" data-value=${res[0][i].ProyectoId} ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
                                 <h4 class="card-title">${res[0][i].ProyectoNombre}</h4>
 
                                 <hr class="hr-light">
@@ -887,16 +886,18 @@
         
         $("#div-proyecto").on("click", "button[name='btn-col']", function(){
             console.log("funciona desde el boton");
-            $.ajax({
-                url:"/proyecto",
-                data:`usuarioId=${usuarioId}`,
-            });
+            console.log($("button[name='btn-col']").val());
         });
 
 
          $("#div-proyecto").on("click", "a.borrar", function(){
             console.log("borrar funciona");
+            console.log($(this).data("value"));
+        });
 
+         $("#div-proyecto").on("click", "a.actualizar", function(){
+            console.log("actualizar funciona");
+            console.log($(this).data("value"));
         });
 
     </script>
