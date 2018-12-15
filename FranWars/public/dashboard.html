@@ -101,24 +101,7 @@
             <!-- Heading -->
             <div class="card mb-4 wow fadeIn" id="div-menu">
 
-                <!--Card content-->
-                <div class="card-body d-sm-flex justify-content-between">
-
-                    <h4 class="mb-2 mb-sm-0 pt-1">
-                        <span>Proyectos</span>
-                    </h4>
-
-                    <form class="d-flex justify-content-center">
-                        <!-- Default input -->
-                        <input type="search" placeholder="nombre de proyecto" aria-label="Search" class="form-control">
-                        <button class="btn mdb-color darken-4 btn-sm my-0 p" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-
-                    </form>
-
-                </div>
-
+       
             </div>
             <!-- Heading -->
 
@@ -126,568 +109,101 @@
 
             <div class="row wow fadeIn mb-4" id="div-proyecto">
           
-                <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 fadeIn">
+                
+                  
+            </div>
+
          
-      
-                    <!-- Card Dark -->
+        
+            <div class="row wow fadeIn" id="div-usuario">
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-6 mb-4">
+
+                    <!--Card-->
                     <div class="card">
-              
-                        <!-- Card image -->
-            
-                        <div class="view overlay">
-                          <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                          <a>
-                            <div class="mask rgba-white-slight"></div>
-                          </a>
-                        </div>
-                      
-                        <!-- Card content -->
-                        <div class="card-body elegant-color white-text rounded-bottom">
-                      
-                          <!-- Social shares button -->
 
-                          <!-- Title -->
-                         <a class="borrar" data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
-                          <a class="actualizar" ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
-                          <h4 class="card-title">Plan Premium</h4>
+                        <!-- Card header  USUARIO-->
+                        <div class="card-header">Usuario Informacion</div>
 
-                          <hr class="hr-light">
-                          <!-- Text -->
-                          <p class="card-text white-text mb-3">Plan con espacio ilimitado.</p>
-                          <!-- Link -->
-                          <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                           name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
-                           data-backdrop="false">colaboradores</button>
+                        <!--Card content-->
+                        <div class="card-body">
+                            <div class="md-form ml-0 mr-0">
+                                <input  type="text" id="usr-id" class="form-control ml-0">
+                                <label for="usr-id" class="ml-0">UsuarioId</label>
+                            </div>
+                            <div class="md-form ml-0 mr-0">
+                                <input  type="text" id="usr-nombre" class="form-control ml-0">
+                                <label for="usr-nombre" class="ml-0">Nombre</label>
+                            </div>
+                            
+                            <div class="md-form ml-0 mr-0">
+                                <input  type="text" id="usr-apellido" class="form-control ml-0">
+                                <label for="usr-apellido" class="ml-0">Apellido</label>
+                            </div>
+                            
+                            <div class="md-form ml-0 mr-0">
+                                <input  type="text" id="usr-nick" class="form-control ml-0">
+                                <label for="usr-nick" class="ml-0">Nick</label>
+                            </div>
+                            
+                            <div class="md-form ml-0 mr-0">
+                                <input  type="text" id="usr-correo" class="form-control ml-0">
+                                <label for="usr-correo" class="ml-0">Correo</label>
+                            </div>
+                            
                          
+                            <div class="md-form ml-0 mr-0">
+                                <input type="password" type="text" id="log-pass" class="form-control ml-0">
+                                <label for="log-pass" class="ml-0">Enter password</label>
+                            </div>
+                      
+                            <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
+                            data-backdrop="false" >actualizar</button>
+                        </div>
+
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header">Plan</div>
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <div class="md-form ml-0 mr-0">
+                                <select name="select" id="usr-plan" class="form-control ml-0">
+                                    <option value="">Choose option</option>
+                                    <option value="1" selected data-toggle="tooltip" title="veamos">Feedback</option>
+                                    <option value="2">Report a bug</option>
+                                    <option value="3">Feature request</option>
+                                    <option value="4">Feature request</option>
+                                </select>
+                            </div>
+                            <div class="md-form ml-0 mr-0" id="contenido-plan">
+                                <input  type="textarea" class="form-control ml-0" value="contenido del plan" disabled>
+                                <h5>veamos</h5>
+                            </div>
+                            <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
+                            data-backdrop="false" >actualizar</button>
                         </div>
                       
-                      </div>
-                      <!-- Card Dark -->
-            
-                  </div>
-                  
-                <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 fadeIn">
-         
-      
-                        <!-- Card Dark -->
-                        <div class="card">
-                  
-                            <!-- Card image -->
-                
-                            <div class="view overlay">
-                              <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                              <a>
-                                <div class="mask rgba-white-slight"></div>
-                              </a>
-                            </div>
-                          
-                            <!-- Card content -->
-                            <div class="card-body elegant-color white-text rounded-bottom">
-                          
-                              <!-- Social shares button -->
-    
-                              <!-- Title -->
-                             <a class="borrar" data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
-                              <a class="actualizar" ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
-                              <h4 class="card-title">Plan Premium</h4>
-    
-                              <hr class="hr-light">
-                              <!-- Text -->
-                              <p class="card-text white-text mb-3">Plan con espacio ilimitado.</p>
-                              <!-- Link -->
-                              <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                               name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
-                               data-backdrop="false">colaboradores</button>
-                             
-                            </div>
-                          
-                          </div>
-                          <!-- Card Dark -->
-                
-                      </div>
-
-                
-                      <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 fadeIn">
-         
-      
-                            <!-- Card Dark -->
-                            <div class="card">
-                      
-                                <!-- Card image -->
                     
-                                <div class="view overlay">
-                                  <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                                  <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                  </a>
-                                </div>
-                              
-                                <!-- Card content -->
-                                <div class="card-body elegant-color white-text rounded-bottom">
-                              
-                                  <!-- Social shares button -->
-        
-                                  <!-- Title -->
-                                 <a class="borrar" data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
-                                  <a class="actualizar" ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
-                                  <h4 class="card-title">Plan Premium</h4>
-        
-                                  <hr class="hr-light">
-                                  <!-- Text -->
-                                  <p class="card-text white-text mb-3">Plan con espacio ilimitado.</p>
-                                  <!-- Link -->
-                                  <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                                   name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
-                                   data-backdrop="false">colaboradores</button>
-                                 
-                                </div>
-                              
-                              </div>
-                              <!-- Card Dark -->
-                    
-                          </div>
-
-                  
-            </div>
-
-            <!--Grid row-->
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!-- Table  -->
-                            <table class="table table-hover">
-                                <!-- Table head -->
-                                <thead class="blue-grey lighten-4">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Lorem</th>
-                                        <th>Ipsum</th>
-                                        <th>Dolor</th>
-                                    </tr>
-                                </thead>
-                                <!-- Table head -->
-
-                                <!-- Table body -->
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Cell 4</td>
-                                        <td>Cell 5</td>
-                                        <td>Cell 6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Cell 7</td>
-                                        <td>Cell 8</td>
-                                        <td>Cell 9</td>
-                                    </tr>
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table  -->
-
-                        </div>
 
                     </div>
                     <!--/.Card-->
 
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!-- Table  -->
-                            <table class="table table-hover">
-                                <!-- Table head -->
-                                <thead class="blue lighten-4">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Lorem</th>
-                                        <th>Ipsum</th>
-                                        <th>Dolor</th>
-                                    </tr>
-                                </thead>
-                                <!-- Table head -->
-
-                                <!-- Table body -->
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Cell 4</td>
-                                        <td>Cell 5</td>
-                                        <td>Cell 6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Cell 7</td>
-                                        <td>Cell 8</td>
-                                        <td>Cell 9</td>
-                                    </tr>
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table  -->
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!-- Card header -->
-                        <div class="card-header">Line chart</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="lineChart"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!-- Card header -->
-                        <div class="card-header">Radar Chart</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="radarChart"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!-- Card header -->
-                        <div class="card-header">Doughnut Chart</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="doughnutChart"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!-- Card header -->
-                        <div class="card-header">Horizontal Bar Chart</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="horizontalBar"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!-- Card header -->
-                        <div class="card-header">Google map</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Google map-->
-                            <div id="map-container" class="z-depth-1" style="height: 500px"></div>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Section: Modals-->
-                        <section>
-
-                            <!--Modal: modalConfirmDelete USAR ESTE-->
-                            <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true" style"z-index: 100000">
-                            <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                            <!--Content-->
-                            <div class="modal-content text-center">
-                                <!--Header-->
-                                <div class="modal-header d-flex justify-content-center">
-                                <p class="heading">Are you sure?</p>
-                                </div>
-
-                                <!--Body-->
-                                <div class="modal-body">
-
-                                <i class="fa fa-times fa-4x animated rotateIn"></i>
-
-                                </div>
-
-                                <!--Footer-->
-                                <div class="modal-footer flex-center">
-                                <a href="" class="btn  btn-outline-danger">Yes</a>
-                                <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
-                                </div>
-                            </div>
-                            <!--/.Content-->
-                            </div>
-                            </div>
-                            <!--Modal: modalConfirmDelete-->
-              
-                            <!-- Modal de colaboradores-->
-                            <div class="modal fade left" id="sideModalTLInfoDemo" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" style"z-index: 100000 !important;">
-                                <div class="modal-dialog modal-full-height modal-right Right modal-notify modal-info" role="document">
-                                    <!--Content-->
-                                    <div class="modal-content"> 
-                                        <!--Header-->
-                                        <div class="modal-header">
-                                            <p class="heading lead">Colaboradores</p>
-
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true" class="white-text">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <!--Body-->
-                                        <div class="modal-body">
-
-                                            <img src="https://mdbootstrap.com/wp-content/uploads/2016/11/admin-dashboard-bootstrap.jpg"
-                                                alt="Material Design for Bootstrap - dashboard" class="img-fluid">
-
-                                            <div class="text-center">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
-                                                    vero illo
-                                                    error eveniet cum.
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <!--Footer-->
-                                        <div class="modal-footer justify-content-center">
-                                            <a role="button" class="btn btn-info">Get it now
-                                                <i class="fa fa-diamond ml-1"></i>
-                                            </a>
-                                            <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">No,
-                                                thanks</a>
-                                        </div>
-                                    </div>
-                                    <!--/.Content-->
-                                </div>
-                            </div>
-                            <!-- Side Modal Top Left Info-->
-
-                            <!-- Side Modal Bottom Left Warning-->
-                      
-                        </section>
-                        <!--Section: Modals-->
-
-                        <!-- Card header -->
-                        <div class="card-header">Modals</div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <div class="text-center mb-5">
-                                <p class="lead">Click buttons below to launch modals demo</p>
-                            </div>
-
-                            <!-- First row-->
-                            <div class="row">
-
-                                <!--First column-->
-                                <div class="col-md-3">
-                                    <h5 class="text-center mb-3">Frame Modal</h5>
-
-                                    <img src="https://mdbootstrap.com/img/brandflow/modal4.jpg" alt="MDB graphics"
-                                        class="img-fluid z-depth-1">
-                                    <div class="text-center">
-                                        <h5 class="my-3">Position</h5>
-
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#frameModalTopInfoDemo"
-                                            data-backdrop="false">Top</a>
-                                        <br>
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#frameModalBottomSuccessDemo"
-                                            data-backdrop="false">Bottom</a>
-                                    </div>
-                                </div>
-                                <!--First column-->
-
-                                <!--Second column-->
-                                <div class="col-md-3">
-                                    <h5 class="text-center mb-3">Side Modal</h5>
-
-                                    <img src="https://mdbootstrap.com/img/brandflow/modal3.jpg" alt="MDB graphics"
-                                        class="img-fluid z-depth-1">
-                                    <div class="text-center">
-                                        <h5 class="my-3">Position</h5>
-
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sideModalTRSuccessDemo"
-                                            data-backdrop="false">Top Right</a>
-                                        <br>
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sideModalTLInfoDemo">Top
-                                            Left</a>
-                                        <br>
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sideModalBRDangerDemo">Bottom
-                                            Right</a>
-                                        <br>
-                                        <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sideModalBLWarningDemo">Bottom
-                                            Left</a>
-                                    </div>
-                                </div>
-                                <!--Second column-->
-
-                                <!--Third column-->
-                                <div class="col-md-3">
-                                    <h5 class="text-center mb-3">Central Modal</h5>
-
-                                    <img src="https://mdbootstrap.com/img/brandflow/modal2.jpg" alt="MDB graphics"
-                                        class="img-fluid z-depth-1">
-                                    <div class="text-center">
-                                        <h5 class="my-3">Size</h5>
-
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#modalLoginAvatarDemo">Small </button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#modalLRFormDemo">Medium </button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#centralModalLGInfoDemo">Large </button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#centralModalFluidSuccessDemo">Fluid </button>
-                                    </div>
-                                </div>
-                                <!--Third column-->
-
-                                <!--Fourth column-->
-                                <div class="col-md-3">
-                                    <h5 class="text-center mb-3">Fluid Modal</h5>
-
-                                    <img src="https://mdbootstrap.com/img/brandflow/modal1.jpg" alt="MDB graphics"
-                                        class="img-fluid z-depth-1">
-                                    <div class="text-center">
-                                        <h5 class="my-3">Position</h5>
-
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#fluidModalRightSuccessDemo">Right</button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#fluidModalLeftInfoDemo">Left</button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#fluidModalTopWarningDemo">Top</button>
-                                        <br>
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#fluidModalBottomDangerDemo">Bottom</button>
-                                    </div>
-                                </div>
-                                <!--Fourth column-->
-
-                            </div>
-                            <!-- /.First row-->
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-            </div>
+      
+  
             <!--Grid row-->
 
         </div>
@@ -775,7 +291,8 @@
     </script>
 
     <!-- Charts -->
-   
+    
+   <!--script que maneja la informacion de usuario-->
     <script>
         var usuarioId;
         var tipoUsuarioId;
@@ -795,12 +312,19 @@
                 }
             });
         });
+   
+    </script>
+
+    <!--script que maneja los proyectos-->
+    <script>
         
-
-
+        var proyectoId 
+        //funcion que obtiene todos los proyectos por un usuario
+        //tambien carga el menu para la busqueda de proyectos
         $("#proyectos").click(function(){
           
             $("#div-menu").empty();
+            $("#div-usuario").empty();
             $("#div-menu").append(`
                
                 <!--Card content-->
@@ -812,7 +336,7 @@
 
                     <form class="d-flex justify-content-center">
                         <!-- Default input -->
-                        <input type="search" placeholder="nombre de proyecto" aria-label="Search" class="form-control">
+                        <input type="search" placeholder="nombre de proyecto" aria-label="Search" class="form-control ml-0">
                         <button class="btn mdb-color darken-4 btn-sm my-0 p" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -822,7 +346,7 @@
                 </div>
 
                 <!-- Heading -->  `).children(':last').hide().fadeIn("3000");
-
+                
             $("#div-proyecto").empty();
             $.ajax({
                 url:"/proyecto",
@@ -873,8 +397,12 @@
                     
                          </div>
                         
+
+
                         `).children(':last').hide().fadeIn("3000");
+
                     }
+                    
                     
                 },
                 error:function(error){
@@ -884,24 +412,299 @@
 
         });
         
+        //funcion que muestra todos los colaboradores de proyecto
         $("#div-proyecto").on("click", "button[name='btn-col']", function(){
             console.log("funciona desde el boton");
             console.log($("button[name='btn-col']").val());
+            $("#contenido-modal").empty();
+            $.ajax({
+                url:"/colaborador",
+                data:`proyectoId=${$("button[name='btn-col']").val()}`,
+                dataType:"json",
+                method:"GET",
+                success:function(res){
+                    console.log(res);
+                    $("#contenido-modal").append(`<ul id="listaCol">`);
+                    for(var i = 0; i < res.length; i++){
+                        $("#contenido-modal").append(`<li>${res[i].UsuarioNick}</li>`);
+                    }
+                    $("#contenido-modal").append(`</ul>`);
+                    proyectoId = $("button[name='btn-col']").val();
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
         });
 
+        //funcion que agrega un nuevo colaborador
+        $("#btn-agCol").click(function(){
 
+            if ($("#usCol").val() == ""){
+                console.log("no tiene informacion");
+            }
+            else{
+                $.ajax({
+                    url:"plan-usuario/obtener",
+                    data:`usuarioTexto=${$("#usCol").val()}`,
+                    dataType:"json",
+                    method:"GET",
+                    success:function(res){
+                        console.log(res[0]);
+                        if (res.length == 1){
+                            console.log("se encontro el usuario");
+                            console.log(res[0].UsuarioId);
+                            var usuario = res[0].UsuarioId;
+                            
+                            $.ajax({
+                                url:"/colaborador",
+                                data:`proyectoId=${proyectoId}&colaboradorId=${res[0].UsuarioId}`,
+                                dataType:"json",
+                                method:"post",
+                                success:function(res){
+                                    console.log(res);
+                                    $("#listaCol").append(`<li>${usuario}</li>`);
+                                },
+                                error:function(error){
+                                    console.log(error);
+                                }
+                            });
+
+                        }
+                        else{
+                            console.log("no se encontro");
+                        }
+                    },
+                    error:function(error){
+
+                    }
+                });
+            }
+
+        });
+
+        //falta programar
          $("#div-proyecto").on("click", "a.borrar", function(){
             console.log("borrar funciona");
             console.log($(this).data("value"));
         });
-
+        
+        //falta programar
          $("#div-proyecto").on("click", "a.actualizar", function(){
             console.log("actualizar funciona");
             console.log($(this).data("value"));
         });
 
     </script>
+    
+    <script>
+    
+    //funcion que carga la informacion de usaurio en dashboard al dar click sobre el boton informacion usuario.
+        $("#btn-informacion").click(function(){
+            $("#div-menu").empty();
+            $("#div-proyecto").empty();
+            $("#div-usuario").empty();
+            $.ajax({
+                url:"/usuario",
+                data:`usuarioId=${usuarioId}`,
+                dataType:"json",
+                method:"GET",
+                success:function(res){
+                    console.log(res[0]);
+                 
+                    if (res[0].length == 1){
 
+                        for (var i =0; i< res[0].length; i++){
+
+
+                        $("#div-usuario").append(`
+                        
+                        <div class="col-lg-6 col-md-6 mb-4">
+
+                            <!--Card-->
+                            <div class="card">
+
+                                <!-- Card header  USUARIO-->
+                                <div class="card-header">Usuario Informacion</div>
+
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="usr-id" class="form-control ml-0" value=${res[0][i].UsuarioId} disabled >
+                                        <label for="usr-id" class="ml-0">Id</label>
+                                    </div>
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="usr-nombre" class="form-control ml-0" value=${res[0][i].UsuarioNombre} selected>
+                                        <label for="usr-nombre" class="ml-0">Nombre</label>
+                                    </div>
+                                    
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="usr-apellido" class="form-control ml-0" value=${res[0][i].UsuarioApellido}>
+                                        <label for="usr-apellido" class="ml-0">Apellido</label>
+                                    </div>
+                                    
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="usr-nick" class="form-control ml-0" value=${res[0][i].UsuarioNick}>
+                                        <label for="usr-nick" class="ml-0">Nick</label>
+                                    </div>
+                                    
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="usr-correo" class="form-control ml-0" value=${res[0][i].UsuarioCorreo}>
+                                        <label for="usr-correo" class="ml-0">Correo</label>
+                                    </div>
+                                    
+                                    <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block " id="usr-actualizar"
+                                    data-backdrop="false" >actualizar</button>
+                                </div>
+
+                            </div>
+                            <!--/.Card-->
+
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 mb-4">
+
+                                <!--Card-->
+                                <div class="card">
+
+                                    <!-- Card header -->
+                                    <div class="card-header">Plan</div>
+
+                                    <!--Card content-->
+                                    <div class="card-body">
+                                        <div class="md-form ml-0 mr-0">
+                                            <select name="select" id="usr-plan" class="form-control ml-0">
+                                              
+                                            </select>
+                                        </div>
+                                        <div class="md-form ml-0 mr-0" id="contenido-plan">
+                                            <h5 id="pl-cont">veamos</h5>
+                                            <p id="pl-tam"></p>
+                                        </div>
+                                        <button id ="btn-actPlan" class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
+                                        data-backdrop="false" >actualizar</button>
+                                    </div>
+
+
+
+                                </div>
+                                <!--/.Card-->
+
+                                </div>
+   
+                        `).children(':last').hide().fadeIn("3000");
+                        
+
+                        var planId = res[0][i].PlanId;
+                         //carga todos los planes disponibles y agrega los demas planes disponibles.
+                         //deja como seleccionado el plan al cual esta suscrito.
+                        $.ajax({
+                            url:"/plan/all",
+                            dataType:"json",
+                            method:"GET",
+                            success:function(res){
+                                console.log(res);
+                                for(var i = 0; i< res.length; i++){
+                                    if (res[i].PlanId == planId ){
+                                        console.log("funciona");
+                                        $("#usr-plan").append(`
+                                        <option value="${res[i].PlanId}" selected data-toggle="tooltip" 
+                                        title=${res[i].PlanDescripcion}>${res[i].PlanNombre}</option>`);
+                                      
+                                        $("#pl-cont").text("Descripcion: " + res[i].PlanDescripcion);
+                                        $("#pl-tam").text("Cantidad Proyectos: " + res[i].PlanEspacio);
+                                    }
+                                    else{
+                                        $("#usr-plan").append(`
+                                            <option value="${res[i].PlanId}" data-toggle="tooltip" title=${res[i].PlanDescripcion}>${res[i].PlanNombre}</option>
+                                        `);
+                                    }
+                                } 
+                            },
+                            error:function(error){
+                                console.log(error);
+                            }
+                        });
+
+
+                      }
+                    }
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        });
+        
+        //funcion para cambiar la informacion del plan
+        $("#div-usuario").on("click","#usr-plan",function(){
+            console.log("hice click");
+            console.log($("#usr-plan").val());
+
+            $.ajax({
+                url:"/plan",
+                data:`planId=${$("#usr-plan").val()}`,
+                dataType:"json",
+                method:"GET",
+                success:function(res){
+                    if (res.length == 1){
+                        console.log(res[0]);
+                        $("#pl-cont").text("Descripcion: " + res[0].PlanDescripcion);
+                        $("#pl-tam").text("Cantidad Proyectos: " + res[0].PlanEspacio);
+                    }
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+        });
+        
+        $("#div-usuario").on("click","#btn-actPlan", function(){
+            console.log("he dado click a actualizar");
+            
+            $.ajax({
+                url:"plan-usuario",
+                data:`planId=${$("#usr-plan").val()}&usuarioId=${$("#usr-id").val()}`,
+                dataType:"json",
+                method:"PUT",
+                success:function(res){
+                    console.log(res);
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+        });
+
+        //funcion para actualizar la tabla de usuario.
+        $("#div-usuario").on("click", '#usr-actualizar', function(){
+            var estatus="Activo";
+            console.log(`usuarioNombre=${$("#usr-nombre").val()}&usuarioApellido=${$("#usr-apellido").val()}
+               &usuarioNick=${$("#usr-nick").val()}&usuarioCorreo=${$("#usr-correo").val()}&usuarioEstatus=${estatus}
+               &usuarioId=${$("#usr-id").val()}`);
+           
+           $.ajax({
+               url:"/usuario",
+               data:`usuarioNombre=${$("#usr-nombre").val()}&usuarioApellido=${$("#usr-apellido").val()}
+               &usuarioNick=${$("#usr-nick").val()}&usuarioCorreo=${$("#usr-correo").val()}&usuarioEstatus=${estatus}
+               &usuarioId=${$("#usr-id").val()}`,
+               dataType:"json",
+               method:"PUT",
+               success:function(res){
+                    console.log(res);
+                   
+               },
+               error:function(error){
+                   console.log(error);
+               }
+           });
+        });
+
+
+
+    </script>
     <!--Google Maps-->
  
 </body>

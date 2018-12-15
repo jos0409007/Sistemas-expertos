@@ -33,18 +33,21 @@ router.route("/")
         bd.query(sql,arr,res);
     })
     .put(function(req, res){
+        console.log("estoy dentro del put");
         var sql = `update usuario set UsuarioNombre = ?, UsuarioApellido = ?, UsuarioNick = ?,
          UsuarioCorreo = ?, UsuarioEstatus = ? where UsuarioId = ?;`;
+        console.log(req);
 
          var arr = [
-             req.query.usuarioNombre,
-             req.query.usuarioApellido,
-             req.query.usuarioNick,
-             req.query.usuarioCorreo,
-             req.query.usuarioEstatus,
-             req.query.usuarioId
+             req.body.usuarioNombre,
+             req.body.usuarioApellido,
+             req.body.usuarioNick,
+             req.body.usuarioCorreo,
+             req.body.usuarioEstatus,
+             req.body.usuarioId
 
          ];
+         console.log(arr);
          bd.query(sql,arr,res);
     })
     .delete(function(req, res){

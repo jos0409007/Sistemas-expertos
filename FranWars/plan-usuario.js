@@ -25,9 +25,19 @@ router.route("/")
         FechaCaducidad = null
         where UsuarioId = ?;`;
     
-        var arr = [req.query.planId, req.query.usuarioId];
+        var arr = [req.body.planId, req.body.usuarioId];
         bd.query(sql,arr,res);
     });
+
+router.get("/obtener", function(req, res){
+    var sql = `select a.UsuarioId from usuario_plan a 
+    inner join usuario u on a.UsuarioId = u.UsuarioId
+    where UsuarioCorreo = ? or UsuarioNick = ?;`;
+    
+    var arr = [req.query.usuarioTexto, req.query.usuarioTexto];
+    bd.query(sql,arr,res);
+
+});
 
 module.exports = router;
 
