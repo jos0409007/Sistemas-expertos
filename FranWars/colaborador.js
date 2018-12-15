@@ -32,5 +32,10 @@ router.route("/")
         bd.query(sql,arr,res);
     });
 
+    router.get("/obtener-proyectos", function(req, res){
+        var sql = "call proyect_colaborador(?)";
+        var arr = [req.query.usuarioId];
+        bd.query(sql,arr,res);
+    });
 module.exports = router;
 //revisado

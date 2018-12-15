@@ -22,6 +22,8 @@ module.exports.query = function(sql, arr, res){
     });
 }
 
+//querySession es una funcion que busca si el usuario existe, si este hace match en la base de datos
+//se agregan las variables de id y tipo de usuario al request, luego estos son usados para la verificacion de permisos
 module.exports.querySession = function(sql, arr,req, res){
    // console.log("veamos si esta llegando");
     var conexion = mysql.createConnection(credenciales.credenciales);

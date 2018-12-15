@@ -31,6 +31,8 @@ var tipoUsuarioId;
 
 app.use(session({ secret: "ASDFE$%#%", resave: true, saveUninitialized: true }));
 
+
+//middleware que se usa para obtener la sesion que se acaba de iniciar
 app.use(function(req, res, next){
     if (req.session.usuarioId){
         usuarioId =  req.session.usuarioId;
@@ -39,6 +41,7 @@ app.use(function(req, res, next){
     next();
 });
 
+//middleware que verifica que la sesion ha sido iniciada, de lo contrario devolvera una pantalla con error
 function verificarAutenticacion(req, res, next){
     if(req.session.usuarioId){
         console.log("la sesion esta iniciada");
@@ -48,6 +51,7 @@ function verificarAutenticacion(req, res, next){
 		res.send("ERROR, ACCESO NO AUTORIZADO");
 }
 
+//inicia sesion de usuario, querySession es un metodo unico, el cual agrega las variables de sesion al request
 app.post("/login", function(req, res){
 
     console.log("entre");
@@ -66,6 +70,7 @@ app.get("/dashboard", verificarAutenticacion,function(req,res){
     res.sendFile(path.join(__dirname + '/public/dashboard.html'));
 });
 
+//esta funcion unicamente envia mediante el api las credenciales del usuario logueado
 app.get("/obtener-usuario", function(req,res){
    var usuario = {
         usuarioId: usuarioId,

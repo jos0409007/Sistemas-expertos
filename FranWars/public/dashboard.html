@@ -111,37 +111,12 @@
               <section>
 
                 <!--Modal: modalConfirmDelete USAR ESTE-->
-                <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true" style"z-index: 100000">
-                <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                <!--Content-->
-                <div class="modal-content text-center">
-                    <!--Header-->
-                    <div class="modal-header d-flex justify-content-center">
-                    <p class="heading">Are you sure?</p>
-                    </div>
-
-                    <!--Body-->
-                    <div class="modal-body">
-
-                    <i class="fa fa-times fa-4x animated rotateIn"></i>
-
-                    </div>
-
-                    <!--Footer-->
-                    <div class="modal-footer flex-center">
-                    <a href="" class="btn  btn-outline-danger">Yes</a>
-                    <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
-                    </div>
-                </div>
-                <!--/.Content-->
-                </div>
-                </div>
+             
                 <!--Modal: modalConfirmDelete-->
   
                 <!-- Modal de colaboradores-->
-                <div class="modal fade left" id="sideModalTLInfoDemo" tabindex="-1" role="dialog"
-                    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" style"z-index: 100000 !important;">
+                <div class="modal fade right" id="sideModalTLInfoDemo" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" >
                     <div class="modal-dialog modal-full-height modal-right Right modal-notify modal-info" role="document">
                         <!--Content-->
                         <div class="modal-content"> 
@@ -170,7 +145,7 @@
                             <div class="container m-2">
                                 <h5>agrega un nuevo colaborador</h5>
                                 <div class="d-flex justify-content-center">
-                                    <input type="text" id="usCol" placeholder="nombre usaurio/correo" class="form-control ml-0">
+                                    <input type="text" id="usCol" placeholder="nombre usaurio/correo" class="form-control ml-0" disabled>
                                     <button id="btn-agCol" class="btn mdb-color darken-4 btn-sm my-0 p">
                                         <i class="fa fa-share"></i>
                                     </button>
@@ -189,6 +164,73 @@
                         <!--/.Content-->
                     </div>
                 </div>
+
+                <!--modal en donde se muestra la informacion de los colaboradores de un proyecto-->
+                <!--Modal: modalRelatedContent-->
+                <div class="modal fade right" id="modalRelatedContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+                        <!--Content-->
+                        <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading">Related article</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            <div class="row">
+                            <div class="col-5">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(55).jpg" class="img-fluid"
+                                alt="">
+                            </div>
+
+                            <div class="col-7">
+                                <p><strong>My travel to paradise</strong></p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit [...]</p>
+                                <button type="button" id="btn-eliminarCol" class="btn btn-primary btn-md" disabled>Eliminar</button>
+
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!--/.Content-->
+                    </div>
+                </div>
+
+                <!--modal para eliminar datos-->
+
+                <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true" style"z-index: 200000 !important;" data-focus-on="input:first">
+                <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                    <p class="heading">¿Esta seguro?</p>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body" id="eliminar-mensaje">
+
+                    <i class="fa fa-times fa-4x animated rotateIn"></i>
+
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer flex-center">
+                    <a class="btn  btn-outline-danger" id="btn-eliminar" data-dismiss="modal">Sí</a>
+                    <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+                </div>
+                </div>
                 <!-- Side Modal Top Left Info-->
 
                 <!-- Side Modal Bottom Left Warning-->
@@ -198,6 +240,12 @@
 
 
             <div class="row wow fadeIn mb-4" id="div-proyecto">
+          
+                
+                  
+            </div>
+
+            <div class="row wow fadeIn mb-4" id="div-proyecto-col">
           
                 
                   
@@ -301,6 +349,11 @@
     <script>
         var usuarioId;
         var tipoUsuarioId;
+        
+        var eliminar = {
+            tipo:undefined,
+            id:undefined
+        };
 
         $(document).ready(function(){
             $.ajax({
@@ -323,6 +376,7 @@
     <!--script que maneja los proyectos-->
     <script>
         
+        //funcion que se utiliza para agregar y eliminar usuarios del proyecto
         var proyectoId 
         //funcion que obtiene todos los proyectos por un usuario
         //tambien carga el menu para la busqueda de proyectos
@@ -330,6 +384,7 @@
           
             $("#div-menu").empty();
             $("#div-usuario").empty();
+            $("#div-proyecto-col").empty();
             $("#div-menu").append(`
                
                 <!--Card content-->
@@ -353,6 +408,7 @@
                 <!-- Heading -->  `).children(':last').hide().fadeIn("3000");
                 
             $("#div-proyecto").empty();
+            //peticion donde se cargan los proyectos donde soy el admin de proyecto
             $.ajax({
                 url:"/proyecto",
                 data:`usuarioId=${usuarioId}`,
@@ -360,7 +416,7 @@
                 method:"GET",
                 success:function(res){
                    
-                   // console.log(res[0]);
+                    console.log(res[0]);
                     for(var i = 0; i < res[0].length; i++){
                         $("#div-proyecto").append(`
                         <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 my-2 pb-2 fadeIn">
@@ -406,42 +462,129 @@
 
                         `).children(':last').hide().fadeIn("3000");
 
+
+
+
+
                     }
                     
+                 
                     
                 },
                 error:function(error){
                     console.log(error);
                 }
             });
-
-        });
-        
-        //funcion que muestra todos los colaboradores de proyecto
-        $("#div-proyecto").on("click", "button[name='btn-col']", function(){
-            console.log("funciona desde el boton");
-            console.log($("button[name='btn-col']").val());
-            $("#contenido-modal").empty();
-            $.ajax({
-                url:"/colaborador",
-                data:`proyectoId=${$("button[name='btn-col']").val()}`,
+            
+            
+            //peticion donde se cargan los proyectos en colaboracion
+             $.ajax({
+                url:"/colaborador/obtener-proyectos",
+                data:`usuarioId=${usuarioId}`,
                 dataType:"json",
                 method:"GET",
                 success:function(res){
-                    console.log(res);
-                    $("#contenido-modal").append(`<ul id="listaCol">`);
-                    for(var i = 0; i < res.length; i++){
-                        $("#listaCol").append(`<li>${res[i].UsuarioNick}</li>`);
+                   
+                   // console.log(res[0]);
+                    for(var i = 0; i < res[0].length; i++){
+                        $("#div-proyecto-col").append("<div class='row col-12'><h1>Proyectos en colaboracion</h1></div><hr>");
+                        $("#div-proyecto-col").append(`
+                        <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 my-2 pb-2 fadeIn">
+         
+                        
+                            <!-- Card Dark -->
+                            <div class="card">
+                    
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                <img class="card-img-top" src="img/plan2.jpg" alt="Card image cap">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                                </div>
+                            
+                                <!-- Card content -->
+                                <div class="card-body elegant-color white-text rounded-bottom">
+                            
+                                <!-- Social shares button -->
+
+                                <!-- Title -->
+                                <h4 class="card-title">${res[0][i].ProyectoNombre}</h4>
+
+                                <hr class="hr-light">
+                                <!-- Text -->
+                                <p class="card-text white-text mb-3">${res[0][i].ProyectoDescripcion}.</p>
+                                <!-- Link -->
+                                <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
+                                    name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
+                                    data-backdrop="false" value="${res[0][i].ProyectoId}" >colaboradores</button>
+                                
+                                </div>
+                            
+                            </div>
+                            <!-- Card Dark -->
+                    
+                         </div>
+                        
+
+
+                        `).children(':last').hide().fadeIn("3000");
+
+
+
+
+
                     }
-                    $("#contenido-modal").append(`</ul>`);
-                    proyectoId = $("button[name='btn-col']").val();
+                    
+                    
                 },
                 error:function(error){
                     console.log(error);
                 }
             });
+            
+            
+        });
+        
+        //funcion que muestra todos los colaboradores de proyecto en los que soy admin
+        $("#div-proyecto").on("click", "button[name='btn-col']", function(){
+            console.log("funciona desde el boton");
+            var proyectId = $(this).val();
+            $("#contenido-modal").empty();
+            $("#usCol").prop("disabled", false);
+            $("#btn-eliminarCol").prop("disabled", false);
+            obtenerColaboradores(proyectId);
+          
+        });
+        
+        //funcion que muestra todos los colaboradores de proyectos en los que estoy como colaborador
+        $("#div-proyecto-col").on("click", "button[name='btn-col']", function(){
+            console.log("funciona el evento click de colaborador");
+            var proyectId = $(this).val();
+            $("#contenido-modal").empty();
+            $("#usCol").prop("disabled", true);
+            $("#btn-eliminarCol").prop("disabled", true);
+            obtenerColaboradores(proyectId);
         });
 
+        //mostrar informacion de usuarios del proyecto
+        $("#contenido-modal").on("click","a.infoCol",function(){
+            console.log("funciona el boton de eliminar usuarios");
+            console.log($(this).val());
+            
+            //al dar click sobre un item de la lista de colaboradores se carga en el objeto eliminar la informacion
+            //del usuario y el id de proyecto, es mejor controlarlo desde aqui.
+
+            eliminar.tipo = "eliminarUsuario";
+            eliminar.id = $(this).data("value");
+
+            $("#eliminar-mensaje").empty();
+            $("#eliminar-mensaje").append(`<p>Eliminara a este colaborador del proyecto</p> 
+            <i class="fa fa-times fa-4x animated rotateIn"></i>`);
+
+            $("#modalRelatedContent").modal("show");
+            //console.log(eliminar);
+        })
         //funcion que agrega un nuevo colaborador
         $("#btn-agCol").click(function(){
 
@@ -491,11 +634,22 @@
             }
 
         });
+        
+        //lleva al promp de eliminar
+        $("#btn-eliminarCol").click(function(){
+
+        });
 
         //falta programar
          $("#div-proyecto").on("click", "a.borrar", function(){
-            console.log("borrar funciona");
-            console.log($(this).data("value"));
+           // console.log("borrar funciona");
+           // console.log($(this).data("value"));
+            eliminar.tipo = "eliminarProyecto";
+            eliminar.id = $(this).data("value");
+            console.log(eliminar);
+            $("#eliminar-mensaje").empty();
+            $("#eliminar-mensaje").append(`<p>eliminara toda la informacion relacionada a este proyecto</p>
+            <i class="fa fa-times fa-4x animated rotateIn"></i>`);
         });
         
         //falta programar
@@ -503,7 +657,51 @@
             console.log("actualizar funciona");
             console.log($(this).data("value"));
         });
+        
+        //eliminar colaborador, falta programar
+        $("#btn-eliminar").click(function(){
+            if (eliminar.tipo == "eliminarUsuario"){
+                alert("esta eliminando un usuario");
+                alert(proyectoId + " " + eliminar.id);
+            }
+               
+            else if (eliminar.tipo == "eliminarProyecto"){
+                alert("esta eliminando un proyecto");
+               
+            }
+                
+        });
 
+        //data-target="#modalConfirmDelete" data-toggle="modal"
+
+        //funcion que generaliza los botones para
+        //recordar el orden.
+        //obtiene proyectos, ve colaboradores, seleccionar colaborador(ver info y posible eliminar), eliminar de proyecto
+        function obtenerColaboradores(proyectId){
+            $.ajax({
+                url:"/colaborador",
+                data:`proyectoId=${proyectId}`,
+                dataType:"json",
+                method:"GET",
+                success:function(res){
+                    console.log(res);
+                    $("#contenido-modal").append(`<div class="list-group" id="listaCol">`);
+                    for(var i = 0; i < res.length; i++){
+                        $("#listaCol").append(`
+                        <a class="infoCol" data-value=${res[i].ColaboradorId}  class="list-group-item list-group-item-action">${res[i].UsuarioNick}</a>
+                    `);
+                    }
+                    $("#contenido-modal").append(`</ul>`);
+                    //al obtener todos los colaboradores de proyecto, se carga en variable el id del proyecto que seleccione.
+                    //se hace para tener un mejor control del proyecto.
+                    
+                    proyectoId = $("button[name='btn-col']").val();
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        }
     </script>
     
     <script>
@@ -512,6 +710,7 @@
         $("#btn-informacion").click(function(){
             $("#div-menu").empty();
             $("#div-proyecto").empty();
+            $("#div-proyecto-col").empty();
             $("#div-usuario").empty();
             $.ajax({
                 url:"/usuario",
@@ -540,26 +739,26 @@
                                 <div class="card-body">
                                     <div class="md-form ml-0 mr-0">
                                         <input  type="text" id="usr-id" class="form-control ml-0" value=${res[0][i].UsuarioId} disabled >
-                                        <label for="usr-id" class="ml-0">Id</label>
+                                        <label for="usr-id" class="ml-0 active">Id</label>
                                     </div>
                                     <div class="md-form ml-0 mr-0">
                                         <input  type="text" id="usr-nombre" class="form-control ml-0" value=${res[0][i].UsuarioNombre} selected>
-                                        <label for="usr-nombre" class="ml-0">Nombre</label>
+                                        <label for="usr-nombre" class="ml-0 active">Nombre</label>
                                     </div>
                                     
                                     <div class="md-form ml-0 mr-0">
                                         <input  type="text" id="usr-apellido" class="form-control ml-0" value=${res[0][i].UsuarioApellido}>
-                                        <label for="usr-apellido" class="ml-0">Apellido</label>
+                                        <label for="usr-apellido" class="ml-0 active">Apellido</label>
                                     </div>
                                     
                                     <div class="md-form ml-0 mr-0">
                                         <input  type="text" id="usr-nick" class="form-control ml-0" value=${res[0][i].UsuarioNick}>
-                                        <label for="usr-nick" class="ml-0">Nick</label>
+                                        <label for="usr-nick" class="ml-0 active">Nick</label>
                                     </div>
                                     
                                     <div class="md-form ml-0 mr-0">
                                         <input  type="text" id="usr-correo" class="form-control ml-0" value=${res[0][i].UsuarioCorreo}>
-                                        <label for="usr-correo" class="ml-0">Correo</label>
+                                        <label for="usr-correo" class="ml-0 active">Correo</label>
                                     </div>
                                     
                                     <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block " id="usr-actualizar"
@@ -647,7 +846,6 @@
         
         //funcion para cambiar la informacion del plan
         $("#div-usuario").on("click","#usr-plan",function(){
-            console.log("hice click");
             console.log($("#usr-plan").val());
 
             $.ajax({
@@ -669,6 +867,7 @@
 
         });
         
+        //funcion para actualizar el plan del usuario
         $("#div-usuario").on("click","#btn-actPlan", function(){
             console.log("he dado click a actualizar");
             
@@ -712,7 +911,7 @@
         });
 
 
-
+     
     </script>
     <!--Google Maps-->
  
