@@ -72,50 +72,18 @@
   
       
       <ul class="navbar-nav ml-auto">
-        <!-- Links 
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
- 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-  
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      -->
+   
         <li class="nav-item">
             <a class="nav-link" data-toggle="modal"
             data-target="#modalLoginAvatarDemo">Iniciar Sesion</a>
         </li> 
         <li class="nav-item active">
-            <a class="nav-link" href="dashboard.html">Registrate</a>
+            <a class="nav-link" onclick="registrarUsuario();">Registrate</a>
         </li>
 
       </ul>
 
-      <!-- Links 
-  
-      <form class="form-inline">
-        <div class="md-form my-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Usuario" aria-label="Usuario">
-        </div>
-        <div class="md-form my-0">
-            <button type="button" class="btn btn-indigo">Elegant</button>
-          </div>
-      </form>
-    </div>
-   Collapsible content -->
-  
+   
     </nav>
 
     
@@ -164,6 +132,68 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="modalRegistro" aria-hidden="true">
+
+    <!--modal para modificar informacion de proyecto-->
+        <!-- Change class .modal-sm to change the size of the modal -->
+        <div class="modal-dialog" role="document">
+    
+    
+            <div class="modal-content">
+            <div class="modal-header"  id="tituloArchivo">
+                <h4 class="modal-title w-100">Registro Usuario</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="usr-registro">
+                <div class="md-form ml-0 mr-0">
+                    <input  type="text" id="usr-nombre" class="form-control ml-0" required >
+                    <label for="usr-nombre" class="ml-0 ">nombre</label>
+                </div>
+
+                <div class="md-form ml-0 mr-0">
+                    <input  type="text" id="usr-apellido" class="form-control ml-0" required >
+                    <label for="usr-apellido" class="ml-0">Apellido</label>
+                </div>
+                
+                <div class="md-form ml-0 mr-0">
+                    <input  type="text" id="usr-nick" class="form-control ml-0" required>
+                    <label for="usr-nick" class="ml-0">Nick</label>
+                </div>
+
+                
+                <div class="md-form ml-0 mr-0">
+                    <input  type="password" id="usr-pass" class="form-control ml-0" required>
+                    <label for="usr-pass" class="ml-0">Contrasenia</label>
+                </div>
+
+                <div class="md-form ml-0 mr-0">
+                    <input  type="text" id="usr-correo" class="form-control ml-0" required>
+                    <label for="usr-correo" class="ml-0">Correo</label>
+                </div>
+
+
+                <div class="md-form ml-0 mr-0">
+                    <select name="select" id="usr-plan" class="form-control ml-0" required>
+                        <option selected disabled>Selecciona un plan</option>
+                       
+                    </select>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-registro" class="btn btn-outline-info waves-effect btn-sm">Aceptar</button>
+                <button type="button" class="btn btn-primary waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
+                
+            </div>
+            </div>
+        </div>
+</div>
+
+
+
 </section>
 
 
@@ -173,8 +203,8 @@
         <h1 class="TituloSombra m-5">Por que cada proyecto es una guerra </h1>
         <h5 class="TituloSombra">Mejora tus habilidades con nosotros</h5>
       </div>
-      <div class=" col-xl-8 col-md-6 col-sm-12 col-xs-12 ">
-        <img src="img/fondo2.png" alt="" width="100%" class=" ml-auto" id="img-principal">
+      <div class=" col-xl-8 col-md-6 col-sm-12 col-xs-12 fadeIn">
+        <img src="img/fondo2.png" alt="" width="100%" class=" ml-auto fadeInRight" id="img-principal">
       </div>
   </div>
 
@@ -183,7 +213,7 @@
          
 
 
-      <div class="row">
+      <div class="row row fadeIn">
           <div class="col-12">
               <h1>Planes</h1>
         

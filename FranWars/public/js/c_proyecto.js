@@ -115,10 +115,11 @@ $("#proyectos").click(function(){
         dataType:"json",
         method:"GET",
         success:function(res){
-           
+            console.log(res);
+            $("#div-proyecto-col").append("<div class='row col-12'><h1>Proyectos en colaboracion</h1></div><hr>");
            // console.log(res[0]);
             for(var i = 0; i < res[0].length; i++){
-                $("#div-proyecto-col").append("<div class='row col-12'><h1>Proyectos en colaboracion</h1></div><hr>");
+              
                 $("#div-proyecto-col").append(`
                 <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 my-2 pb-2 fadeIn">
  
@@ -367,7 +368,7 @@ $("#btn-proyecto").click(function(){
                                     <!-- Card image -->
                                     <div class="view overlay">
                                     <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                                    <a onClick="cargarProyecto(${res[0][i].ProyectoId},'${res[0][i].ProyectoNombre}');">
+                                    <a onClick="cargarProyecto(${res[0][i].ProyectoId},'${$("#pr-nombre").val()}');">
                                          <div class="mask rgba-white-slight"></div>
                                     </a>
                                     </div>
@@ -536,39 +537,9 @@ function cargarProyecto(proyectId,proyectNombre){
     editor = null;
     editor2 = null;
     editor3 = null;
+    //myCode=editor.getSession().getValue();
+    $("#div-ace").empty();
 
-    editor = ace.edit("editor");
-    editor.setTheme("ace/theme/dracula");
-    editor.session.setMode("ace/mode/javascript");
-    editor.setOption("ennableEmmet", true);
-    editor.setValue("");
-
-    editor3 = ace.edit("css");
-    editor3.setTheme("ace/theme/dracula");
-    editor3.session.setMode("ace/mode/css");
-    editor3.setOption("ennableEmmet", true);
-    editor3.setValue("");
-
-    editor2 = ace.edit("html",{
-        theme:"ace/theme/TextMate",
-        mode:"ace/mode/html",
-        autoScrollEditorIntoView: true
-    });
-    editor2.setValue("");
-// ace.require("ace/ext/language_tools");
-    //ace.require("ace/ext/emmet");
-    //editor2.setTheme("ace/theme/TextMate");
-    //editor2.session.setMode("ace/mode/html");
-    //editor.getSession().setValue("write your code here");
-    myCode=editor.getSession().getValue();
-    editor2.setOption("enableEmmet",true);
-    editor2.focus();
-    
-    editor2.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true
-    });
 
     $.ajax({
         url:"/archivo/carpetas",
@@ -589,7 +560,7 @@ function cargarProyecto(proyectId,proyectNombre){
                 for(var i = 0; i < res.length; i++){
                     dependencia(proyectId,res[i].ArchivoId, res[i].ArchivoNombre, res[i].TipoArchivo,clase,res[i].ArchivoContenido);
                 }
-
+                
                 var c2 = `</ul></div>`;
                 $("#listaProyecto").append(c2);
             }
@@ -609,6 +580,9 @@ function cargarProyecto(proyectId,proyectNombre){
 
 //funcion recursiva, se llama para crear el arbol de archivos dentro del proyecto.
 function dependencia(PrId, archId, archNombre, tipo,clase, contenido){
+
+   // alert(`veamos que esta pasando: ${PrId}, ${archId}, ${archNombre}, ${tipo}, ${clase}, ${contenido}`);
+
     if(tipo =="Carpeta"){
         var clas = archNombre.replace(" ",'-');
     var cadena = `<i class="fa fa-folder-open" aria-hidden="true">${archNombre}<ul class=${clas}>`;
@@ -621,8 +595,11 @@ function dependencia(PrId, archId, archNombre, tipo,clase, contenido){
             method:"GET",
             success:function(res){
                 if(res.length > 0){
+                  //  alert(res);
+                 //   console.log(res);
                     for(var i = 0; i< res.length; i++){
-                        dependencia(res[i].ArchivoId, PrId,res[i].ArchivoNombre, res[i].TipoArchivo,clas,res[i].ArchivoContenido);
+                  //      console.log(PrId + " " + res[i].ArchivoId + " " + res[i].ArchivoNombre + " " + res[i].TipoArchivo + " " + clas + " " + res[i].contenido);
+                        dependencia( PrId,res[i].ArchivoId,res[i].ArchivoNombre, res[i].TipoArchivo,clas,res[i].ArchivoContenido);
                     }
                 }
                 var c2 = `</ul></li>`;
@@ -633,18 +610,92 @@ function dependencia(PrId, archId, archNombre, tipo,clase, contenido){
             }
         });
     }
-    else{
+    else if(tipo=="Archivo"){
+      //  alert("encontro: " + archNombre + " " + archId);
         var c = `<i class="fa fa-file-code-o mb-1" aria-hidden="true" ><a onClick="mensaje();">${archNombre}</a></i>`;
         $(`.${clase}`).append(c);
         
-        if(archNombre == "index.html"){
-            editor2.setValue(contenido);
-        }else if(archNombre == "style.css"){
-            editor3.setValue(contenido);
-        }else if(archNombre == "controlador.js"){
-            editor.setValue(contenido);
+        if(archNombre.trimEnd() == "index.html"){
+
+            $("#div-ace").append(`
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <h2>html</h2>
+                <pre id="html" class="editor" data-value="${archId}"></pre>
+            </div>
+            
+            `);
+
+            editor2 = ace.edit("html", {
+                theme: "ace/theme/tomorrow_night_eighties",
+                mode: "ace/mode/html",
+                wrap: true,
+                autoScrollEditorIntoView: true
+            });
+            if (contenido == null || contenido == undefined || contenido == "")
+                editor2.setValue("<!--Escribe tu estructura-->");
+            else 
+                editor2.setValue(contenido);
+
+            editor2.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+
+        }else if(archNombre.trimEnd() == "style.css"){
+
+            $("#div-ace").append(`
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <h2>CSS</h2>
+                <pre id="css" class="editor" data-value=${archId}></pre>
+            </div>
+            `);
+
+            editor3 = ace.edit("css", {
+                theme: "ace/theme/tomorrow_night_eighties",
+                mode: "ace/mode/css",
+                wrap: true,
+                autoScrollEditorIntoView: true
+            });
+            
+            editor3.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+
+            if (contenido == undefined || contenido == null || contenido == "")
+                editor3.setValue("/*escribe tu codigo*/");
+            else
+                editor3.setValue(contenido);
+
+          
+        }
+        else if(archNombre.trimEnd() == "controlador.js"){
+
+            $("#div-ace").append(`
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <h2>JS</h2>
+                <pre id="editor" class="editor" data-value=${archId} >//editor js</pre>
+            </div>
+            
+            `);
+
+            editor = ace.edit("editor");
+            editor.setTheme("ace/theme/dracula");
+            editor.session.setMode("ace/mode/javascript");
+            editor.setOption("ennableEmmet", true);
+            editor.setValue("");
+            if (contenido == undefined || contenido == null || contenido == "")
+                editor.setValue("/*escribe tu codigo*/");
+            else
+                editor.setValue(contenido);
+
+            
+    
         }
     }
+    
 }
 
 function mensaje(){

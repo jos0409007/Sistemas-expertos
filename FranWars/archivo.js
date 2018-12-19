@@ -17,20 +17,32 @@ router.route("/")
     })
     .post(function(req, res){
         var archivoSuperior = req.body.archivoSuperiorId;
-        if (archivoSuperior == "")
-            archivoSuperior = null;
-
-        var sql = `insert into 
+        var arr;
+        var sql;
+        if (archivoSuperior == "" || archivoSuperior == undefined || archivoSuperior == "null"){
+            sql = `insert into 
+            archivo(ProyectoId, ArchivoContenido,ArchivoNombre,ArchivoFecha, TipoArchivo, ArchivoSuperiorId) 
+            values (?,?,?,now(),?,null);`;
+            arr = [
+                req.body.proyectoId, 
+                req.body.archivoContenido,
+                req.body.archivoNombre,
+                req.body.tipoArchivo,
+            ];
+        }else{
+            sql = `insert into 
             archivo(ProyectoId, ArchivoContenido,ArchivoNombre,ArchivoFecha, TipoArchivo, ArchivoSuperiorId) 
             values (?,?,?,now(),?,?);`;
-        
-        var arr = [
-            req.body.proyectoId, 
-            req.body.archivoContenido,
-            req.body.archivoNombre,
-            req.body.tipoArchivo,
-            archivoSuperior
-        ];
+             
+            arr = [
+                req.body.proyectoId, 
+                req.body.archivoContenido,
+                req.body.archivoNombre,
+                req.body.tipoArchivo,
+                archivoSuperior
+            ];
+        }
+            
         console.log(req.body);
 
         bd.query(sql,arr,res);
@@ -38,9 +50,8 @@ router.route("/")
     })
     .put(function(req, res){
         var sql = `update archivo set ArchivoNombre = ?, 
-        ArchivoContenido = ?, ArchivoFecha = now(), 
-        ArchivoSuperiorId = ? where ArchivoId = ?;`;
-        var arr = [req.body.archivoNombre, req.body.archivoContenido, req.body.archivoSuperiorId, req.body.archivoId];
+        ArchivoContenido = ?, ArchivoFecha = now() where ArchivoId = ?;`;
+        var arr = [req.body.archivoNombre, req.body.archivoContenido, req.body.archivoId];
         bd.query(sql,arr,res);
     })
     .delete(function(req, res){

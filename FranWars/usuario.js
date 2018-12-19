@@ -17,7 +17,7 @@ router.route("/")
     .post(function(req, res){
         var sql = `insert into 
         usuario(UsuarioNombre,UsuarioApellido,UsuarioNick,UsuarioPassword, UsuarioCorreo, UsuarioRedSocial, TipoUsuarioId, UsuarioEstatus) 
-        values (?,?,?,sha1(?),?,?,?,?);`;
+        values (?,?,?,sha1(?),?,null,2,'Activo');`;
 
         var arr =  [
             req.body.usuarioNombre,
@@ -25,9 +25,6 @@ router.route("/")
             req.body.usuarioNick,
             req.body.usuarioPassword,
             req.body.usuarioCorreo,
-            req.body.usuarioRedSocial,
-            req.body.tipoUsuarioId,
-            req.body.usuarioEstatus
         ];
 
         bd.query(sql,arr,res);
