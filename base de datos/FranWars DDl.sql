@@ -1,5 +1,4 @@
--- we don't know how to generate schema franwars (class Schema) :(
-create table plan
+create table if not exists plan
 (
 	PlanId int auto_increment
 		primary key,
@@ -11,31 +10,35 @@ create table plan
 comment 'tabla de planes dentro del sistema'
 ;
 
-create table tipo_archivo
+create table if not exists tipo_usuario
 (
-	TipoArchivoId int auto_increment
+	TipoUsuarioId int auto_increment
 		primary key,
-	TipoArchivoNombre varchar(40) not null
+	TipoUsuario varchar(40) null
 )
 ;
 
-create table usuario
+create table if not exists usuario
 (
 	UsuarioId int auto_increment
 		primary key,
 	UsuarioNombre varchar(50) not null,
 	UsuarioApellido varchar(50) not null,
 	UsuarioNick varchar(20) not null,
+	UsuarioPassword varchar(100) not null,
 	UsuarioCorreo varchar(20) not null,
 	UsuarioRedSocial varchar(100) null,
+	TipoUsuarioId int null,
 	UsuarioEstatus enum('Activo', 'Inactivo') not null,
 	constraint Usuario_UsuarioNick_uindex
-		unique (UsuarioNick)
+		unique (UsuarioNick),
+	constraint usuario_tipo_fk
+		foreign key (TipoUsuarioId) references tipo_usuario (TipoUsuarioId)
 )
 comment 'tabla de usuarios del sistema'
 ;
 
-create table usuario_plan
+create table if not exists usuario_plan
 (
 	UsuarioId int not null
 		primary key,
@@ -51,7 +54,7 @@ create table usuario_plan
 )
 ;
 
-create table proyecto
+create table if not exists proyecto
 (
 	ProyectoId int auto_increment
 		primary key,
@@ -65,43 +68,41 @@ create table proyecto
 comment 'tabla de proyectos '
 ;
 
-create table archivo
+create table if not exists archivo
 (
 	ArchivoId int auto_increment
 		primary key,
 	ProyectoId int not null,
 	ArchivoContenido varchar(3000) null,
-	ArchivoNombre varchar(20) not null,
+	ArchivoNombre varchar(100) not null,
 	ArchivoFecha datetime null,
-	TipoArchivoId int not null,
+	TipoArchivo varchar(40) null,
 	ArchivoSuperiorId int null,
 	constraint archivo_archivo_ArchivoId_fk
 		foreign key (ArchivoSuperiorId) references archivo (ArchivoId)
 			on update cascade on delete cascade,
 	constraint archivo_proyecto_ProyectoId_fk
 		foreign key (ProyectoId) references proyecto (ProyectoId)
-			on update cascade on delete cascade,
-	constraint archivo_tipo_archivo_TipoArchivoId_fk
-		foreign key (TipoArchivoId) references tipo_archivo (TipoArchivoId)
 			on update cascade on delete cascade
 )
 comment 'tabla de archivos de proyecto'
 ;
 
-create table colaborador
+create table if not exists colaborador
 (
 	ColaboradorId int not null,
 	ProyectoId int not null,
-	constraint colaborad_pk	primary key(ColaboradorId,ProyectoId),
+	primary key (ColaboradorId, ProyectoId),
 	constraint colaborador_proyecto_ProyectoId_fk
-		foreign key(ProyectoId) references proyecto (ProyectoId)
+		foreign key (ProyectoId) references proyecto (ProyectoId)
 			on update cascade on delete cascade,
 	constraint colaborador_usuario_plan_UsuarioId_fk
 		foreign key (ColaboradorId) references usuario_plan (UsuarioId)
 			on update cascade on delete cascade
 )
 ;
-create table chat
+
+create table if not exists chat
 (
 	ChatId int auto_increment
 		primary key,
