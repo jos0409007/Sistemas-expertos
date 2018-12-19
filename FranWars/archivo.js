@@ -21,7 +21,7 @@ router.route("/")
             archivoSuperior = null;
 
         var sql = `insert into 
-            archivo(ProyectoId, ArchivoContenido,ArchivoNombre,ArchivoFecha, TipoArchivoId, ArchivoSuperiorId) 
+            archivo(ProyectoId, ArchivoContenido,ArchivoNombre,ArchivoFecha, TipoArchivo, ArchivoSuperiorId) 
             values (?,?,?,now(),?,?);`;
         
         var arr = [
@@ -31,6 +31,8 @@ router.route("/")
             req.body.tipoArchivo,
             archivoSuperior
         ];
+        console.log(req.body);
+
         bd.query(sql,arr,res);
 
     })
@@ -38,7 +40,7 @@ router.route("/")
         var sql = `update archivo set ArchivoNombre = ?, 
         ArchivoContenido = ?, ArchivoFecha = now(), 
         ArchivoSuperiorId = ? where ArchivoId = ?;`;
-        var arr = [req.query.archivoNombre, req.query.archivoContenido, req.query.archivoSuperiorId, req.query.archivoId];
+        var arr = [req.body.archivoNombre, req.body.archivoContenido, req.body.archivoSuperiorId, req.body.archivoId];
         bd.query(sql,arr,res);
     })
     .delete(function(req, res){
@@ -53,4 +55,23 @@ router.get("/all", function(req,res){
     bd.query(sql,arr,res);
 });
 
+router.get("/carpetas", function(req, res) {
+   var sql = "select * from archivo where ProyectoId = ? and ArchivoSuperiorId is null;"; 
+   var arr = [req.query.proyectoId];
+   bd.query(sql,arr,res);
+});
+
+//funcion que devuelve todas las carpetas del proyecto.
+//se utiliza para crear un nuevo archivo dentro de las carpetas.
+router.get("/carp", function(req, res) {
+   var sql = `select * from archivo where TipoArchivo = "Carpeta" and ProyectoId = ?;`
+   var arr = [req.query.proyectoId];
+   bd.query(sql,arr,res); 
+});
+
+router.get("/archivos", function(req, res) {
+    var sql = `select * from archivo where ProyectoId = ? and ArchivoSuperiorId = ?;`
+    var arr = [req.query.proyectoId, req.query.superiorId];
+    bd.query(sql,arr,res); 
+});
 module.exports = router;

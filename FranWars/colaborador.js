@@ -12,7 +12,7 @@ router.use(bodyParser.urlencoded({
 router.route("/")
     .get(function(req, res){
         //debe ejecutarse al cargar el proyecto
-        var sql = `select c.ColaboradorId, u.UsuarioNombre, u.UsuarioApellido, u.UsuarioNick from colaborador c 
+        var sql = `select c.ColaboradorId, u.UsuarioNombre, u.UsuarioApellido, u.UsuarioNick, u.UsuarioCorreo from colaborador c 
         inner join usuario_plan up on c.ColaboradorId = up.UsuarioId
         inner join usuario u on up.UsuarioId = u.UsuarioId
         where c.ProyectoId = ?;`;
@@ -27,8 +27,9 @@ router.route("/")
     })
     .delete(function(req, res){
         //ejecutarse en boton de eliminar colaborador en front end
-        var sql = "call eliminar_colaborador(?);";
-        var arr = [req.query.usuarioId];
+        var sql = "call eliminar_colaborador(?,?);";
+        var arr = [req.body.usuarioId, req.body.proyectoId];
+        console.log(arr);
         bd.query(sql,arr,res);
     });
 

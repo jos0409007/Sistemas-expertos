@@ -18,7 +18,7 @@ router.route("/")
     })
     .post(function(req, res){
 
-        var sql = "insert into proyecto(ProyectoNombre,ProyectoDescripcion,UsuarioId) values (?,?,?);";
+        var sql = "call crear_proyecto(?,?,?);";
         var arr = [req.body.proyectoNombre, req.body.proyectoDescripcion, req.body.usuarioId];
         bd.query(sql,arr,res);
 
@@ -30,14 +30,18 @@ router.route("/")
         ProyectoDescripcion = ? 
         where ProyectoId = ?;`
         
-        var arr = [req.query.proyectoNombre, req.query.proyectoDescripcion, req.query.proyectoId];
+        var arr = [req.body.proyectoNombre, req.body.proyectoDescripcion, req.body.proyectoId];
+        //console.log("estoy en el actualizar de proyecto");
+        //console.log(arr);
+        //console.log(req);
+
         bd.query(sql,arr,res);
 
     })
     .delete(function(req, res){
 
         var sql = "call eliminar_proyecto(?)";
-        var arr = [req.query.proyectoId];
+        var arr = [req.body.proyectoId];
         bd.query(sql,arr,res);
         
     });

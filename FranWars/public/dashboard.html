@@ -14,6 +14,28 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.min.css" rel="stylesheet">
+
+    <style type="text/css" media="screen">
+        .editor { 
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 430px;
+            width: 100%;
+            display: inline-block;
+    
+        }
+        .icono{
+            font-size: 12px !important;
+        }
+        .texto{
+            font-size: 12px !important;
+        }
+    </style>
+
+
 </head>
 
 <body class="grey lighten-3">
@@ -109,14 +131,182 @@
 
               <!--Section: Modals-->
               <section>
+            <!-- Full Height Modal Right -->
+            <!--Mdal donde se mostrara el proyecto-->
+            <div class="modal fade right" id="modalArchivos" tabindex="-1" role="dialog" aria-labelledby="modalArchivos" aria-hidden="true">
 
-                <!--Modal: modalConfirmDelete USAR ESTE-->
-             
-                <!--Modal: modalConfirmDelete-->
+        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+                <div class="modal-dialog modal-full-height modal-top" role="document">
+            
+            
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <h4 class="modal-title w-100" id="ProyectoTitulo">Proyecto</h4>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <button type="button" class="btn mdb-color darken-4 btn-sm my-0 p" onClick="crearArchivo();">
+                                        Nuevo Archivo
+                                </button>
+                                
+                            </div>
+                        </div>
+                    
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-2 col-xl-2 col-lg-2 col-sm-12 border-right border-light" id="listaProyecto" >
+                                <!--
+ <ul class="list-group">
+                                    <li class="list-group-item active">
+                                      <div class="md-v-line"></div><i class="fa fa-laptop mr-4 pr-3"></i> Cras justo odio
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div class="md-v-line"></div><i class="fa fa-bomb mr-5"></i>Dapibus ac facilisis in
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div class="md-v-line"></div><i class="fa fa-code mr-5"></i>Morbi leo risus
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div class="md-v-line"></div><i class="fa fa-diamond mr-5"></i>Porta ac consectetur ac
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div class="md-v-line"></div><i class="fa fa-gear mr-5"></i>Vestibulum at eros
+                                    </li>
+                                  </ul>
+                                  <ul>
+                                    <li>primer elemento</li>
+                                    <li>segundo</li>
+                                    <li>
+                                        <div class="texto">tercer elemento</div>
+                                        <ul>
+                                            <li><i class="fa fa-desktop icono" aria-hidden="true"></i>sub elemento</li>
+                                            <li>sub 2</li>
+                                            <li>sub 3</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                -->
+                               
+                            </div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <h2>html</h2>
+                                        <pre id="html" class="editor" ></pre>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <h2>CSS</h2>
+                                        <pre id="css" class="editor" >/*editor css*/</pre>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                        <h2>JS</h2>
+                                        <pre id="editor" class="editor" >//editor js</pre>
+                                    </div>
+                                </div>
+                                
+                               
+                            </div>
+                        </div>
+                       
+                        
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="verificar();">ejecutar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+             <!-- Full Height Modal Right -->
+
+
+
+                <div class="modal fade" id="modalProyecto" tabindex="-1" role="dialog" aria-labelledby="modalProyecto" aria-hidden="true">
+
+                    <!--modal para modificar informacion de proyecto-->
+                        <!-- Change class .modal-sm to change the size of the modal -->
+                        <div class="modal-dialog" role="document">
+                    
+                    
+                            <div class="modal-content">
+                            <div class="modal-header"  id="myModalLabel">
+                                <h4 class="modal-title w-100">Proyecto</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="pr-info">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btn-proyecto" class="btn btn-outline-info waves-effect btn-sm">Aceptar</button>
+                                <button type="button" class="btn btn-primary waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
+                                
+                            </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="modal fade" id="modalNArchivo" tabindex="-1" role="dialog" aria-labelledby="modalNArchivo" aria-hidden="true">
+
+                        <!--modal para modificar informacion de proyecto-->
+                            <!-- Change class .modal-sm to change the size of the modal -->
+                            <div class="modal-dialog" role="document">
+                        
+                        
+                                <div class="modal-content">
+                                <div class="modal-header"  id="tituloArchivo">
+                                    <h4 class="modal-title w-100">Nuevo</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="bd-arch">
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="arch-id" class="form-control ml-0" disabled >
+                                        <label for="arch-id" class="ml-0 active">Id</label>
+                                    </div>
+
+                                    <div class="md-form ml-0 mr-0">
+                                        <input  type="text" id="arch-nombre" class="form-control ml-0" >
+                                        <label for="arch-nombre" class="ml-0">Nombre</label>
+                                    </div>
+
+
+                                    <div class="md-form ml-0 mr-0">
+                                        <select name="select" id="arch-tipo" class="form-control ml-0">
+                                            <option selected disabled>Tipo de archivo</option>
+                                            <option value="Carpeta">Carpeta</option>
+                                            <option value="Archivo">Archivo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="md-form ml-0 mr-0">
+                                        <select name="select-superior" id="arch-superior" class="form-control ml-0">
+                                            <option selected disabled>Selecciona la carpeta superior</option>
+                                            <option >raiz</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="btn-archivo" class="btn btn-outline-info waves-effect btn-sm">Aceptar</button>
+                                    <button type="button" class="btn btn-primary waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+      
   
                 <!-- Modal de colaboradores-->
                 <div class="modal fade right" id="sideModalTLInfoDemo" tabindex="-1" role="dialog"
-                    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" >
+                    aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true" >
                     <div class="modal-dialog modal-full-height modal-right Right modal-notify modal-info" role="document">
                         <!--Content-->
                         <div class="modal-content"> 
@@ -174,7 +364,7 @@
                         <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
-                            <p class="heading">Related article</p>
+                            <p class="heading">Informacion Usuario</p>
 
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="white-text">&times;</span>
@@ -191,8 +381,9 @@
                             </div>
 
                             <div class="col-7">
-                                <p><strong>My travel to paradise</strong></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit [...]</p>
+                                <div id="info-usuario">
+                                     
+                                </div>
                                 <button type="button" id="btn-eliminarCol" class="btn btn-primary btn-md" disabled>Eliminar</button>
 
                             </div>
@@ -239,27 +430,14 @@
             <!--Section: Modals-->
 
 
-            <div class="row wow fadeIn mb-4" id="div-proyecto">
-          
-                
-                  
+            <div class="row wow fadeIn mb-4" id="div-proyecto">         
             </div>
 
-            <div class="row wow fadeIn mb-4" id="div-proyecto-col">
-          
-                
-                  
+            <div class="row wow fadeIn mb-4" id="div-proyecto-col">          
             </div>
 
-         
-        
             <div class="row wow fadeIn" id="div-usuario">
-
-          
-  
-            <!--Grid row-->
-
-        </div>
+           </div>
     </main>
     <!--Main layout-->
 
@@ -343,6 +521,18 @@
         new WOW().init();
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-emmet.js"></script>
+
+    <!-- load ace language tools -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-language_tools.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/worker-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-error_marker.js"></script>
+
+    <script src="js/c_proyecto.js"></script>
+    <script src="js/c_admin_usuario.js"></script>
+    <script src="js/c_archivo.js"></script>
+
     <!-- Charts -->
     
    <!--script que maneja la informacion de usuario-->
@@ -354,6 +544,11 @@
             tipo:undefined,
             id:undefined
         };
+
+
+        var editor;
+        var editor2;
+        var editor3;
 
         $(document).ready(function(){
             $.ajax({
@@ -373,547 +568,42 @@
    
     </script>
 
-    <!--script que maneja los proyectos-->
     <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/dracula");
+        editor.session.setMode("ace/mode/javascript");
+        editor.setOption("ennableEmmet", true);
+
+        var editor3 = ace.edit("css");
+        editor3.setTheme("ace/theme/dracula");
+        editor3.session.setMode("ace/mode/css");
+        editor3.setOption("ennableEmmet", true);
+
+
+        var editor2 = ace.edit("html",{
+            theme:"ace/theme/TextMate",
+            mode:"ace/mode/html",
+            autoScrollEditorIntoView: true
+        });
+    // ace.require("ace/ext/language_tools");
+        //ace.require("ace/ext/emmet");
+        //editor2.setTheme("ace/theme/TextMate");
+        //editor2.session.setMode("ace/mode/html");
+        //editor.getSession().setValue("write your code here");
+        myCode=editor.getSession().getValue();
+        editor2.setOption("enableEmmet",true);
+        editor2.focus();
         
-        //funcion que se utiliza para agregar y eliminar usuarios del proyecto
-        var proyectoId 
-        //funcion que obtiene todos los proyectos por un usuario
-        //tambien carga el menu para la busqueda de proyectos
-        $("#proyectos").click(function(){
-          
-            $("#div-menu").empty();
-            $("#div-usuario").empty();
-            $("#div-proyecto-col").empty();
-            $("#div-menu").append(`
-               
-                <!--Card content-->
-                <div class="card-body d-sm-flex justify-content-between">
-
-                    <h4 class="mb-2 mb-sm-0 pt-1">
-                        <span>Proyectos</span>
-                    </h4>
-
-                    <form class="d-flex justify-content-center">
-                        <!-- Default input -->
-                        <input type="search" placeholder="nombre de proyecto" aria-label="Search" class="form-control ml-0">
-                        <button class="btn mdb-color darken-4 btn-sm my-0 p" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-
-                    </form>
-
-                </div>
-
-                <!-- Heading -->  `).children(':last').hide().fadeIn("3000");
-                
-            $("#div-proyecto").empty();
-            //peticion donde se cargan los proyectos donde soy el admin de proyecto
-            $.ajax({
-                url:"/proyecto",
-                data:`usuarioId=${usuarioId}`,
-                dataType:"json",
-                method:"GET",
-                success:function(res){
-                   
-                    console.log(res[0]);
-                    for(var i = 0; i < res[0].length; i++){
-                        $("#div-proyecto").append(`
-                        <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 my-2 pb-2 fadeIn">
-         
-                        
-                            <!-- Card Dark -->
-                            <div class="card">
-                    
-                                <!-- Card image -->
-                                <div class="view overlay">
-                                <img class="card-img-top" src="img/plan1.png" alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                </div>
-                            
-                                <!-- Card content -->
-                                <div class="card-body elegant-color white-text rounded-bottom">
-                            
-                                <!-- Social shares button -->
-
-                                <!-- Title -->
-                                <a class="borrar" data-value=${res[0][i].ProyectoId} data-target="#modalConfirmDelete" data-toggle="modal"> <i class="fa fa-trash  m-2" aria-hidden="true"></i></a>
-                                 <a class="actualizar" data-value=${res[0][i].ProyectoId} ><i class="fa fa-pencil-square-o m-2" aria-hidden="true"></i></a> 
-                                <h4 class="card-title">${res[0][i].ProyectoNombre}</h4>
-
-                                <hr class="hr-light">
-                                <!-- Text -->
-                                <p class="card-text white-text mb-3">${res[0][i].ProyectoDescripcion}.</p>
-                                <!-- Link -->
-                                <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                                    name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
-                                    data-backdrop="false" value="${res[0][i].ProyectoId}" >colaboradores</button>
-                                
-                                </div>
-                            
-                            </div>
-                            <!-- Card Dark -->
-                    
-                         </div>
-                        
-
-
-                        `).children(':last').hide().fadeIn("3000");
-
-
-
-
-
-                    }
-                    
-                 
-                    
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-            
-            
-            //peticion donde se cargan los proyectos en colaboracion
-             $.ajax({
-                url:"/colaborador/obtener-proyectos",
-                data:`usuarioId=${usuarioId}`,
-                dataType:"json",
-                method:"GET",
-                success:function(res){
-                   
-                   // console.log(res[0]);
-                    for(var i = 0; i < res[0].length; i++){
-                        $("#div-proyecto-col").append("<div class='row col-12'><h1>Proyectos en colaboracion</h1></div><hr>");
-                        $("#div-proyecto-col").append(`
-                        <div class="col-xl-4 col-md-4 col-sm-12 col-xs-12 mb-4 my-2 pb-2 fadeIn">
-         
-                        
-                            <!-- Card Dark -->
-                            <div class="card">
-                    
-                                <!-- Card image -->
-                                <div class="view overlay">
-                                <img class="card-img-top" src="img/plan2.jpg" alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                </div>
-                            
-                                <!-- Card content -->
-                                <div class="card-body elegant-color white-text rounded-bottom">
-                            
-                                <!-- Social shares button -->
-
-                                <!-- Title -->
-                                <h4 class="card-title">${res[0][i].ProyectoNombre}</h4>
-
-                                <hr class="hr-light">
-                                <!-- Text -->
-                                <p class="card-text white-text mb-3">${res[0][i].ProyectoDescripcion}.</p>
-                                <!-- Link -->
-                                <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                                    name="btn-col" data-toggle="modal" data-target="#sideModalTLInfoDemo"
-                                    data-backdrop="false" value="${res[0][i].ProyectoId}" >colaboradores</button>
-                                
-                                </div>
-                            
-                            </div>
-                            <!-- Card Dark -->
-                    
-                         </div>
-                        
-
-
-                        `).children(':last').hide().fadeIn("3000");
-
-
-
-
-
-                    }
-                    
-                    
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-            
-            
+        editor2.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true
         });
-        
-        //funcion que muestra todos los colaboradores de proyecto en los que soy admin
-        $("#div-proyecto").on("click", "button[name='btn-col']", function(){
-            console.log("funciona desde el boton");
-            var proyectId = $(this).val();
-            $("#contenido-modal").empty();
-            $("#usCol").prop("disabled", false);
-            $("#btn-eliminarCol").prop("disabled", false);
-            obtenerColaboradores(proyectId);
-          
-        });
-        
-        //funcion que muestra todos los colaboradores de proyectos en los que estoy como colaborador
-        $("#div-proyecto-col").on("click", "button[name='btn-col']", function(){
-            console.log("funciona el evento click de colaborador");
-            var proyectId = $(this).val();
-            $("#contenido-modal").empty();
-            $("#usCol").prop("disabled", true);
-            $("#btn-eliminarCol").prop("disabled", true);
-            obtenerColaboradores(proyectId);
-        });
-
-        //mostrar informacion de usuarios del proyecto
-        $("#contenido-modal").on("click","a.infoCol",function(){
-            console.log("funciona el boton de eliminar usuarios");
-            console.log($(this).val());
-            
-            //al dar click sobre un item de la lista de colaboradores se carga en el objeto eliminar la informacion
-            //del usuario y el id de proyecto, es mejor controlarlo desde aqui.
-
-            eliminar.tipo = "eliminarUsuario";
-            eliminar.id = $(this).data("value");
-
-            $("#eliminar-mensaje").empty();
-            $("#eliminar-mensaje").append(`<p>Eliminara a este colaborador del proyecto</p> 
-            <i class="fa fa-times fa-4x animated rotateIn"></i>`);
-
-            $("#modalRelatedContent").modal("show");
-            //console.log(eliminar);
-        })
-        //funcion que agrega un nuevo colaborador
-        $("#btn-agCol").click(function(){
-
-            if ($("#usCol").val() == ""){
-                console.log("no tiene informacion");
-            }
-            else{
-                $.ajax({
-                    url:"plan-usuario/obtener",
-                    data:`usuarioTexto=${$("#usCol").val()}`,
-                    dataType:"json",
-                    method:"GET",
-                    success:function(res){
-                        console.log(res[0]);
-                        if (res.length == 1){
-                            console.log("se encontro el usuario");
-                            console.log(res[0].UsuarioId);
-                            var usuario = res[0].UsuarioId;
-                            var nick = res[0].UsuarioNick;
-
-                            $.ajax({
-                                url:"/colaborador",
-                                data:`proyectoId=${proyectoId}&colaboradorId=${res[0].UsuarioId}`,
-                                dataType:"json",
-                                method:"post",
-                                success:function(res){
-                                    console.log(res);
-                                    if (res.affectedRows && res.serverStatus == 2)
-                                        $("#listaCol").append(`<li>${nick}</li>`);
-                                    else
-                                        console.log("este usuario ya esta en la lista");
-                                },
-                                error:function(error){
-                                    console.log(error);
-                                }
-                            });
-
-                        }
-                        else{
-                            console.log("no se encontro");
-                        }
-                    },
-                    error:function(error){
-
-                    }
-                });
-            }
-
-        });
-        
-        //lleva al promp de eliminar
-        $("#btn-eliminarCol").click(function(){
-
-        });
-
-        //falta programar
-         $("#div-proyecto").on("click", "a.borrar", function(){
-           // console.log("borrar funciona");
-           // console.log($(this).data("value"));
-            eliminar.tipo = "eliminarProyecto";
-            eliminar.id = $(this).data("value");
-            console.log(eliminar);
-            $("#eliminar-mensaje").empty();
-            $("#eliminar-mensaje").append(`<p>eliminara toda la informacion relacionada a este proyecto</p>
-            <i class="fa fa-times fa-4x animated rotateIn"></i>`);
-        });
-        
-        //falta programar
-         $("#div-proyecto").on("click", "a.actualizar", function(){
-            console.log("actualizar funciona");
-            console.log($(this).data("value"));
-        });
-        
-        //eliminar colaborador, falta programar
-        $("#btn-eliminar").click(function(){
-            if (eliminar.tipo == "eliminarUsuario"){
-                alert("esta eliminando un usuario");
-                alert(proyectoId + " " + eliminar.id);
-            }
-               
-            else if (eliminar.tipo == "eliminarProyecto"){
-                alert("esta eliminando un proyecto");
-               
-            }
-                
-        });
-
-        //data-target="#modalConfirmDelete" data-toggle="modal"
-
-        //funcion que generaliza los botones para
-        //recordar el orden.
-        //obtiene proyectos, ve colaboradores, seleccionar colaborador(ver info y posible eliminar), eliminar de proyecto
-        function obtenerColaboradores(proyectId){
-            $.ajax({
-                url:"/colaborador",
-                data:`proyectoId=${proyectId}`,
-                dataType:"json",
-                method:"GET",
-                success:function(res){
-                    console.log(res);
-                    $("#contenido-modal").append(`<div class="list-group" id="listaCol">`);
-                    for(var i = 0; i < res.length; i++){
-                        $("#listaCol").append(`
-                        <a class="infoCol" data-value=${res[i].ColaboradorId}  class="list-group-item list-group-item-action">${res[i].UsuarioNick}</a>
-                    `);
-                    }
-                    $("#contenido-modal").append(`</ul>`);
-                    //al obtener todos los colaboradores de proyecto, se carga en variable el id del proyecto que seleccione.
-                    //se hace para tener un mejor control del proyecto.
-                    
-                    proyectoId = $("button[name='btn-col']").val();
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-        }
     </script>
-    
-    <script>
-    
-    //funcion que carga la informacion de usaurio en dashboard al dar click sobre el boton informacion usuario.
-        $("#btn-informacion").click(function(){
-            $("#div-menu").empty();
-            $("#div-proyecto").empty();
-            $("#div-proyecto-col").empty();
-            $("#div-usuario").empty();
-            $.ajax({
-                url:"/usuario",
-                data:`usuarioId=${usuarioId}`,
-                dataType:"json",
-                method:"GET",
-                success:function(res){
-                    console.log(res[0]);
-                 
-                    if (res[0].length == 1){
-
-                        for (var i =0; i< res[0].length; i++){
-
-
-                        $("#div-usuario").append(`
-                        
-                        <div class="col-lg-6 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card">
-
-                                <!-- Card header  USUARIO-->
-                                <div class="card-header">Usuario Informacion</div>
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <div class="md-form ml-0 mr-0">
-                                        <input  type="text" id="usr-id" class="form-control ml-0" value=${res[0][i].UsuarioId} disabled >
-                                        <label for="usr-id" class="ml-0 active">Id</label>
-                                    </div>
-                                    <div class="md-form ml-0 mr-0">
-                                        <input  type="text" id="usr-nombre" class="form-control ml-0" value=${res[0][i].UsuarioNombre} selected>
-                                        <label for="usr-nombre" class="ml-0 active">Nombre</label>
-                                    </div>
-                                    
-                                    <div class="md-form ml-0 mr-0">
-                                        <input  type="text" id="usr-apellido" class="form-control ml-0" value=${res[0][i].UsuarioApellido}>
-                                        <label for="usr-apellido" class="ml-0 active">Apellido</label>
-                                    </div>
-                                    
-                                    <div class="md-form ml-0 mr-0">
-                                        <input  type="text" id="usr-nick" class="form-control ml-0" value=${res[0][i].UsuarioNick}>
-                                        <label for="usr-nick" class="ml-0 active">Nick</label>
-                                    </div>
-                                    
-                                    <div class="md-form ml-0 mr-0">
-                                        <input  type="text" id="usr-correo" class="form-control ml-0" value=${res[0][i].UsuarioCorreo}>
-                                        <label for="usr-correo" class="ml-0 active">Correo</label>
-                                    </div>
-                                    
-                                    <button class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block " id="usr-actualizar"
-                                    data-backdrop="false" >actualizar</button>
-                                </div>
-
-                            </div>
-                            <!--/.Card-->
-
-                            </div>
-
-                            <div class="col-lg-6 col-md-6 mb-4">
-
-                                <!--Card-->
-                                <div class="card">
-
-                                    <!-- Card header -->
-                                    <div class="card-header">Plan</div>
-
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <div class="md-form ml-0 mr-0">
-                                            <select name="select" id="usr-plan" class="form-control ml-0">
-                                              
-                                            </select>
-                                        </div>
-                                        <div class="md-form ml-0 mr-0" id="contenido-plan">
-                                            <h5 id="pl-cont">veamos</h5>
-                                            <p id="pl-tam"></p>
-                                        </div>
-                                        <button id ="btn-actPlan" class="btn mdb-color darken-4 white-text border-info mb-3 btn-lg btn-block "
-                                        data-backdrop="false" >actualizar</button>
-                                    </div>
-
-
-
-                                </div>
-                                <!--/.Card-->
-
-                                </div>
    
-                        `).children(':last').hide().fadeIn("3000");
-                        
-
-                        var planId = res[0][i].PlanId;
-                         //carga todos los planes disponibles y agrega los demas planes disponibles.
-                         //deja como seleccionado el plan al cual esta suscrito.
-                        $.ajax({
-                            url:"/plan/all",
-                            dataType:"json",
-                            method:"GET",
-                            success:function(res){
-                                console.log(res);
-                                for(var i = 0; i< res.length; i++){
-                                    if (res[i].PlanId == planId ){
-                                        console.log("funciona");
-                                        $("#usr-plan").append(`
-                                        <option value="${res[i].PlanId}" selected data-toggle="tooltip" 
-                                        title=${res[i].PlanDescripcion}>${res[i].PlanNombre}</option>`);
-                                      
-                                        $("#pl-cont").text("Descripcion: " + res[i].PlanDescripcion);
-                                        $("#pl-tam").text("Cantidad Proyectos: " + res[i].PlanEspacio);
-                                    }
-                                    else{
-                                        $("#usr-plan").append(`
-                                            <option value="${res[i].PlanId}" data-toggle="tooltip" title=${res[i].PlanDescripcion}>${res[i].PlanNombre}</option>
-                                        `);
-                                    }
-                                } 
-                            },
-                            error:function(error){
-                                console.log(error);
-                            }
-                        });
-
-
-                      }
-                    }
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-        });
-        
-        //funcion para cambiar la informacion del plan
-        $("#div-usuario").on("click","#usr-plan",function(){
-            console.log($("#usr-plan").val());
-
-            $.ajax({
-                url:"/plan",
-                data:`planId=${$("#usr-plan").val()}`,
-                dataType:"json",
-                method:"GET",
-                success:function(res){
-                    if (res.length == 1){
-                        console.log(res[0]);
-                        $("#pl-cont").text("Descripcion: " + res[0].PlanDescripcion);
-                        $("#pl-tam").text("Cantidad Proyectos: " + res[0].PlanEspacio);
-                    }
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-
-        });
-        
-        //funcion para actualizar el plan del usuario
-        $("#div-usuario").on("click","#btn-actPlan", function(){
-            console.log("he dado click a actualizar");
-            
-            $.ajax({
-                url:"plan-usuario",
-                data:`planId=${$("#usr-plan").val()}&usuarioId=${$("#usr-id").val()}`,
-                dataType:"json",
-                method:"PUT",
-                success:function(res){
-                    console.log(res);
-                },
-                error:function(error){
-                    console.log(error);
-                }
-            });
-
-        });
-
-        //funcion para actualizar la tabla de usuario.
-        $("#div-usuario").on("click", '#usr-actualizar', function(){
-            var estatus="Activo";
-            console.log(`usuarioNombre=${$("#usr-nombre").val()}&usuarioApellido=${$("#usr-apellido").val()}
-               &usuarioNick=${$("#usr-nick").val()}&usuarioCorreo=${$("#usr-correo").val()}&usuarioEstatus=${estatus}
-               &usuarioId=${$("#usr-id").val()}`);
-           
-           $.ajax({
-               url:"/usuario",
-               data:`usuarioNombre=${$("#usr-nombre").val()}&usuarioApellido=${$("#usr-apellido").val()}
-               &usuarioNick=${$("#usr-nick").val()}&usuarioCorreo=${$("#usr-correo").val()}&usuarioEstatus=${estatus}
-               &usuarioId=${$("#usr-id").val()}`,
-               dataType:"json",
-               method:"PUT",
-               success:function(res){
-                    console.log(res);
-                   
-               },
-               error:function(error){
-                   console.log(error);
-               }
-           });
-        });
-
-
-     
-    </script>
-    <!--Google Maps-->
+    
+   
+    
  
 </body>
 
