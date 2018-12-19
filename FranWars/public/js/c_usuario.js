@@ -53,7 +53,8 @@
             success:function(res){
               console.log(res);
               if (res.affectedRows == 1){
-              
+                alert("se ha registrado el usuario");
+                $("#modalRegistro").modal("toggle");
               }
               else{
                 alert("no se registro en plan");
@@ -86,6 +87,7 @@
       method:"GET",
       success:function(res){
           console.log(res);
+          $("#usr-plan").empty();
           for(var i = 0; i< res.length; i++){
         
             $("#usr-plan").append(`

@@ -1,6 +1,6 @@
 function crearArchivo(){
     //alert("veamos si funciona");
-    alert("este es el id: " + proyectoId + " " + proyectoNombre)
+   // alert("este es el id: " + proyectoId + " " + proyectoNombre)
     $.ajax({
         url:"/archivo/carp",
         data:`proyectoId=${proyectoId}`,
@@ -28,7 +28,7 @@ function crearArchivo(){
 
 $("#btn-archivo").click(function(){
 
-    alert("hice click para guardar el archivo");
+   // alert("hice click para guardar el archivo");
     console.log("estos son los valores de los campos");
 
   //  console.log($("#arch-nombre").val());
