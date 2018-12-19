@@ -239,6 +239,9 @@ $("#btn-agCol").click(function(){
                     console.log(res[0].UsuarioId);
                     var usuario = res[0].UsuarioId;
                     var nick = res[0].UsuarioNick;
+                    var correo = res[0].UsuarioCorreo;
+                    var nombre = res[0].UsuarioNombre;
+                    var apellido = res[0].UsuarioApellido
 
                     $.ajax({
                         url:"/colaborador",
@@ -248,7 +251,9 @@ $("#btn-agCol").click(function(){
                         success:function(res){
                             console.log(res);
                             if (res.affectedRows && res.serverStatus == 2)
-                                $("#listaCol").append(`<li>${nick}</li>`);
+                                $("#listaCol").append(` <a class="infoCol" data-value=${usuario}  class="list-group-item list-group-item-action" 
+                                onClick="informacion('${nombre.trimEnd()}', '${apellido.trimEnd()}', '${nick.trimEnd()}', '${correo.trimEnd()}');">
+                                ${nick}</a>`);
                             else
                                 console.log("este usuario ya esta en la lista");
                         },
@@ -402,6 +407,7 @@ $("#btn-proyecto").click(function(){
                             
                             `).children(':last').hide().fadeIn("3000");
                             alert("se agrego un nuevo proyecto");
+                            $("#modalProyecto").modal("toggle");
                     }
                    
                     
@@ -424,6 +430,7 @@ $("#btn-proyecto").click(function(){
             if(res.affectedRows == 1){
                 console.log(res);
                 alert("se ha actualizado el registro");
+                $("#modalProyecto").modal("toggle");
             }else{
                 alert("algo ha sucedido");
                 console.log(res);

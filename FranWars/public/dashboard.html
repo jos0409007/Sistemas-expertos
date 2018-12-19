@@ -37,6 +37,12 @@
         .blue-text{
             color: #1c2331!important;
         }
+
+
+        .modal-dialog.modal-notify.modal-info .badge, .modal-dialog.modal-notify.modal-info .modal-header {
+    background-color:#1c2331!important;
+}
+
     </style>
 
 
@@ -81,7 +87,7 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a class="nav-link border border-light rounded waves-effect" id="btn-cerrar-sesion">
+                            <a class="nav-link border border-light rounded waves-effect" id="btn-cerrar-sesion" onclick="cerrarSesion();">
                                 Cerrar Sesion
                             </a>
                         </li>
@@ -231,7 +237,7 @@
                         
                     </div>
                     <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary" onclick="verificar();">ejecutar</button>
+                    <button type="button" class="btn mdb-color darken-4" onclick="verificar();">ejecutar</button>
                     </div>
                 </div>
                 </div>
@@ -259,7 +265,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" id="btn-proyecto" class="btn btn-outline-info waves-effect btn-sm">Aceptar</button>
-                                <button type="button" class="btn btn-primary waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn mdb-color darken-4 waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
                                 
                             </div>
                             </div>
@@ -309,7 +315,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" id="btn-archivo" class="btn btn-outline-info waves-effect btn-sm">Aceptar</button>
-                                    <button type="button" class="btn btn-primary waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn mdb-color darken-4 waves-effect btn-sm" data-dismiss="modal">Cancelar</button>
                                     
                                 </div>
                                 </div>
@@ -397,7 +403,7 @@
                                 <div id="info-usuario">
                                      
                                 </div>
-                                <button type="button" id="btn-eliminarCol" class="btn btn-primary btn-md" disabled>Eliminar</button>
+                                <button type="button" id="btn-eliminarCol" class="btn mdb-color darken-4 btn-md" disabled>Eliminar</button>
 
                             </div>
                             </div>
@@ -495,6 +501,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/worker-css.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ext-error_marker.js"></script>
 
+    <script src="js/c_usuario.js"></script>
     <script src="js/c_proyecto.js"></script>
     <script src="js/c_admin_usuario.js"></script>
     <script src="js/c_archivo.js"></script>

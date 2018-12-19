@@ -126,6 +126,7 @@ function salvar(){
         });
 
     }
+    alert("se han actualizado con exito");
 
 }
 

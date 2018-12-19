@@ -30,7 +30,7 @@ router.route("/")
     });
 
 router.get("/obtener", function(req, res){
-    var sql = `select a.UsuarioId, u.UsuarioNick from usuario_plan a 
+    var sql = `select a.UsuarioId, u.UsuarioNick, u.UsuarioCorreo, u.UsuarioNombre, u.UsuarioApellido from usuario_plan a 
     inner join usuario u on a.UsuarioId = u.UsuarioId
     where UsuarioCorreo = ? or UsuarioNick = ?;`;
     

@@ -104,3 +104,18 @@
 
   }
 
+  function cerrarSesion(){
+    $.ajax({
+      url:"/cerrar-sesion",
+      dataType:"json",
+      method:"GET",
+      success:function(res){
+        console.log(res);
+        window.location = "/";
+      },
+      error:function(error){
+        console.log(error);
+      }
+    });
+  }
+

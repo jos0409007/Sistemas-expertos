@@ -47,8 +47,12 @@ function verificarAutenticacion(req, res, next){
         console.log("la sesion esta iniciada");
         return next();
     }
-	else
-		res.send("ERROR, ACCESO NO AUTORIZADO");
+	else{
+        res.redirect("/");
+        //res.send("ERROR, ACCESO NO AUTORIZADO");
+       
+    }
+       
 }
 
 //inicia sesion de usuario, querySession es un metodo unico, el cual agrega las variables de sesion al request
@@ -86,6 +90,7 @@ app.get("/", function(req, res){
 app.get("/cerrar-sesion",function(req,res){
     req.session.destroy();
     res.send("Sesion eliminada");
+    res.redirect("/");
     res.end();
 });
 
