@@ -79,6 +79,13 @@ function verificar(){
     console.log("este es mi editor html");
     console.log(editor2.getValue());
     console.log($("#html").data("value"));
+
+    var res = document.getElementById('resultado').contentWindow.document;
+    res.open();
+    res.write(editor2.getValue());
+    res.write("<style>" + editor3.getValue() + "</style>");
+    res.write("<script>"+ editor.getValue() +"</script>");
+    res.close();
 }
 
 function salvar(){
@@ -120,4 +127,8 @@ function salvar(){
 
     }
 
+}
+
+function hola(){
+    alert("funciona");
 }
